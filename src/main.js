@@ -1,5 +1,5 @@
 import './style.css';
-import { createIcons } from 'lucide';
+import { createIcons, Check, ArrowRight, ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, Package, Droplets, Gift, Banknote, Smartphone, Landmark } from 'lucide';
 import { P, A, SZ, formatPeso, getPerfumeImage } from './data.js';
 
 import logoChanel from './assets/logo/chanel-svgrepo-com.svg';
@@ -20,6 +20,8 @@ import photoInitio from './assets/photos/initio.png';
 import photoTomFord from './assets/photos/tomford.jpeg';
 import photoYSL from './assets/photos/ysl.webp';
 
+const IC = { Check, ArrowRight, ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, Package, Droplets, Gift, Banknote, Smartphone, Landmark };
+
 const brandLogos = [
   { name: 'Chanel', src: logoChanel, h: 'h-8 sm:h-9' },
   { name: 'Dior', src: logoDior, h: 'h-8 sm:h-9' },
@@ -35,7 +37,7 @@ const brandLogos = [
 // --- Hero Carousel Data ---
 const heroSlides = [
   {
-    id: 'rouge-540',
+    id: 'maison-francis-kurkdjian-baccarat-rouge-540-edp',
     name: 'Baccarat Rouge 540',
     house: 'Maison Francis Kurkdjian',
     kick: 'Maison Francis Kurkdjian — Paris',
@@ -47,7 +49,7 @@ const heroSlides = [
     word: 'Kurkdjian'
   },
   {
-    id: 'aventus',
+    id: 'creed-aventus-for-him',
     name: 'Aventus',
     house: 'Creed',
     kick: 'Creed 1760 — Heritage',
@@ -59,7 +61,7 @@ const heroSlides = [
     word: 'Aventus'
   },
   {
-    id: 'libre',
+    id: 'ysl-libre-edp',
     name: 'Libre',
     house: 'Yves Saint Laurent',
     kick: 'Yves Saint Laurent — Paris',
@@ -71,7 +73,7 @@ const heroSlides = [
     word: 'Saint Laurent'
   },
   {
-    id: 'delina',
+    id: 'parfums-de-marly-delina-edp',
     name: 'Delina EDP',
     house: 'Parfums de Marly',
     kick: 'Parfums de Marly — France',
@@ -83,7 +85,7 @@ const heroSlides = [
     word: 'De Marly'
   },
   {
-    id: 'good-girl',
+    id: 'carolina-herrera-good-girl-edp',
     name: 'Good Girl EDP',
     house: 'Carolina Herrera',
     kick: 'Carolina Herrera — New York',
@@ -95,7 +97,7 @@ const heroSlides = [
     word: 'Herrera'
   },
   {
-    id: 'amber-k',
+    id: 'ella-k-amber-k',
     name: 'Amber K',
     house: 'Ella K',
     kick: 'Ella K — Haute Parfumerie',
@@ -113,24 +115,25 @@ let heroTimer = null;
 
 // --- Global State ---
 let cart = [
-  { id: 'sillage-1', size: '50ml', qty: 1, price: 5400 },
-  { id: 'rouge-540', size: '50ml', qty: 1, price: 18900 }
+  { id: 'creed-aventus-for-him', size: '50ml', qty: 1, price: 18500 },
+  { id: 'maison-francis-kurkdjian-baccarat-rouge-540-edp', size: '50ml', qty: 1, price: 18900 }
 ];
 let shopFilter = 'All';
 let pdpState = { id: null, size: '50ml' };
 let lastHomeSection = null;
 let lastBrandName = null;
-let calY = 2026, calM = 6, selDate = null, selTime = null, visit = 'Fragrance evening';
+const _now = new Date();
+let calY = _now.getFullYear(), calM = _now.getMonth(), selDate = null, selTime = null, visit = 'Fragrance evening';
 const MO = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const TODAY = new Date(2026, 6, 21);
+const TODAY = new Date(_now.getFullYear(), _now.getMonth(), _now.getDate());
 
 // --- View Templates ---
 const views = {
   home: `
     <main class="view active" id="view-home">
       <!-- HERO CAROUSEL -->
-      <section class="hero-section" id="hero" style="background-color: ${heroSlides[0].bg};">
-        <div class="hero-ambient-glow" id="heroGlow" style="background: ${heroSlides[0].glow};"></div>
+      <section class="hero-section" id="hero">
+        <div class="hero-ambient-glow" id="heroGlow"></div>
         <div class="hero-bg-word hero-text-anim" id="heroBgWord" data-hero="bg">${heroSlides[0].word}</div>
         <div class="hero-bottle-wrap" id="heroBottleWrap">
           ${heroSlides.map((s, i) => `
@@ -614,7 +617,7 @@ function init() {
     const o = e.target.closest('[data-open]');
     if (o) openProduct(o.dataset.open);
     // Calendar
-    if (e.target.closest('#calPrev')) { if (calY === 2026 && calM <= 6) return; calM--; if (calM < 0) { calM = 11; calY--; } buildCal(); }
+    if (e.target.closest('#calPrev')) { let pM = calM - 1, pY = calY; if (pM < 0) { pM = 11; pY--; } if (pY < TODAY.getFullYear() || (pY === TODAY.getFullYear() && pM < TODAY.getMonth())) return; calM = pM; calY = pY; buildCal(); }
     if (e.target.closest('#calNext')) { calM++; if (calM > 11) { calM = 0; calY++; } buildCal(); }
     const vbtn = e.target.closest('#vtype [data-visit]');
     if (vbtn) {
@@ -631,7 +634,16 @@ function init() {
     }
   });
 
-  document.getElementById('burger').onclick = () => go('shop');
+  // Mobile menu toggle
+  const _burger = document.getElementById('burger');
+  const _mobMenu = document.getElementById('mobileMenu');
+  if (_burger && _mobMenu) {
+    const closeMob = () => { _mobMenu.classList.remove('mob-open'); setTimeout(() => { _mobMenu.style.display = 'none'; }, 500); };
+    _burger.onclick = () => { _mobMenu.style.display = 'flex'; requestAnimationFrame(() => _mobMenu.classList.add('mob-open')); };
+    _mobMenu.querySelectorAll('[data-nav]').forEach(l => l.addEventListener('click', closeMob));
+    const _mobClose = document.getElementById('mobileMenuClose');
+    if (_mobClose) _mobClose.onclick = closeMob;
+  }
 
   // Inline Navbar Search Box logic
   const navSearchToggle = document.getElementById('navSearchToggle');
@@ -722,8 +734,9 @@ function setHeroSlide(idx) {
 
   if (!heroSec || !slide) return;
 
-  // Toggle pre-stacked bottle image layer for zero-flicker 60fps GPU crossfade
+  // Toggle pre-stacked bottle image layer for zero-flicker 60fps GPU crossfade (slides UP from below)
   document.querySelectorAll('.hero-bottle-img').forEach((img, i) => {
+    img.style.transform = ''; // clear inline scroll-transform override
     img.classList.toggle('active', i === idx);
   });
 
@@ -785,16 +798,15 @@ function go(name) {
   if (name === 'shop') renderShop();
   if (name === 'order') renderCart();
   if (name === 'book') { buildCal(); updateSum(); }
-  requestAnimationFrame(() => { bindReveals(); createIcons(); });
+  requestAnimationFrame(() => { bindReveals(); createIcons({ icons: IC }); parallax(); });
 }
 
-// --- Cards ---
 function card(p) {
   return `
     <article class="group relative cursor-pointer" data-open="${p.id}" style="--i:${P.indexOf(p) % 6}">
-      <div class="relative bg-paper-2 aspect-[4/5] overflow-hidden mb-4">
-        ${p.tag ? `<span class="absolute top-3.5 left-3.5 z-20 text-[0.58rem] tracking-[0.16em] uppercase font-semibold px-2.5 py-1.5 ${p.tag === 'New' || p.tag === 'Cult' || p.tag === 'Signature' ? 'bg-ink text-paper' : 'bg-paper text-ink'}">${p.tag}</span>` : ''}
-        <img class="w-full h-full object-contain p-4 md:p-5 product-card-img group-hover:scale-105 filter drop-shadow(0 10px 20px rgba(0,0,0,0.08))" src="${p.img}" alt="${p.name}">
+      <div class="relative bg-paper-2 aspect-[4/5] flex items-center justify-center p-3 sm:p-4 overflow-hidden mb-4">
+        ${p.tag ? `<span class="absolute top-3.5 left-3.5 z-20 text-[0.58rem] tracking-[0.16em] uppercase font-semibold px-2.5 py-1.5 ${p.tag === 'New' || p.tag === 'Cult' || p.tag === 'Signature' ? 'bg-ink text-paper' : 'bg-paper text-ink shadow-sm'}">${p.tag}</span>` : ''}
+        <img class="w-full h-full object-contain product-card-img drop-shadow-md" src="${p.img}" alt="${p.name}">
       </div>
       <div class="flex justify-between items-baseline gap-3.5">
         <div>
@@ -867,85 +879,255 @@ function renderShopGrid() {
     } else {
       g.innerHTML = list.map(card).join('');
     }
-    requestAnimationFrame(() => { g.classList.add('in'); createIcons(); });
+    requestAnimationFrame(() => { g.classList.add('in'); createIcons({ icons: IC }); });
   }
 }
 
+function findProduct(id) {
+  if (!id) return null;
+  let p = P.find(x => x.id === id);
+  if (p) return p;
+  p = P.find(x => x.id.includes(id) || id.includes(x.id));
+  return p || null;
+}
+
 function openProduct(id) {
-  const p = P.find(x => x.id === id); if (!p) return;
-  pdpState = { id, size: '50ml' };
+  const p = findProduct(id); if (!p) return;
+  pdpState = { id: p.id, size: '50ml' };
   const gal = [p.img, A.frost, A.amber, A.strips];
   const pf = s => Math.round(p.price * SZ.find(z => z.ml === s).m / 10) * 10;
 
   document.getElementById('view-product').innerHTML = `
-    <div class="px-edge pt-[115px] md:pt-[125px] pb-1">
-      <button data-nav="shop" class="inline-flex items-center gap-2.5 text-[0.74rem] font-semibold tracking-[0.18em] uppercase text-ink-2 hover:text-ink transition-colors cursor-pointer group bg-transparent border-none p-0">
-        <i data-lucide="arrow-left" class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"></i>
+    <!-- Minimalist Navigation Bar -->
+    <div class="px-edge pt-[115px] md:pt-[130px] pb-6 flex items-center justify-between">
+      <button data-nav="shop" class="inline-flex items-center gap-2 text-[0.72rem] font-medium tracking-[0.18em] uppercase text-mute hover:text-ink transition-colors cursor-pointer bg-transparent border-none p-0">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
         <span>Back to collections</span>
       </button>
+      <span class="text-[0.68rem] tracking-[0.2em] uppercase text-mute font-medium">${p.cat}</span>
     </div>
-    <div class="px-edge pt-4 grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[clamp(30px,5vw,80px)] items-start">
-      <div class="md:sticky md:top-[80px]">
-        <div class="bg-paper-2 aspect-square grid place-items-center overflow-hidden"><img class="h-[96%] max-w-[96%] object-contain filter drop-shadow(0 15px 30px rgba(0,0,0,0.12)) product-card-img hover:scale-105" id="pdpMain" src="${p.img}" alt="${p.name}"></div>
-        <div class="w-full grid grid-cols-4 gap-3 sm:gap-3.5 mt-3.5" id="pdpThumbs">${gal.map((g, i) => `<button class="w-full aspect-square bg-paper-2 border ${i === 0 ? 'border-ink' : 'border-transparent'} overflow-hidden p-0 transition-all duration-400 ease-custom hover:border-ink cursor-pointer group" data-thumb="${g}"><img class="w-full h-full object-contain p-[14%] filter drop-shadow(0 4px 8px rgba(0,0,0,0.06)) transition-transform duration-500 ease-custom group-hover:scale-105 will-change-transform" src="${g}"></button>`).join('')}</div>
+
+    <!-- Minimalist Main Stage -->
+    <div class="px-edge pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-[clamp(32px,6vw,96px)] items-start">
+      
+      <!-- Left: Clean Bottle Stage -->
+      <div class="lg:sticky lg:top-[100px] space-y-4 max-w-[78%] sm:max-w-[75%] mx-auto lg:mx-0">
+        <div class="relative w-full h-auto bg-paper-2 overflow-hidden flex items-center justify-center p-4 sm:p-6 group" id="pdpStage">
+          ${p.tag ? `<span class="absolute top-4 left-4 z-10 text-[0.58rem] tracking-[0.2em] uppercase font-medium text-mute bg-paper/90 px-2.5 py-1 shadow-sm">${p.tag}</span>` : ''}
+          
+          <!-- Prev/Next Navigation Arrows -->
+          <button id="pdpPrev" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-paper/85 backdrop-blur-sm border border-hair flex items-center justify-center text-ink opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-ink hover:text-paper hover:scale-110 cursor-pointer shadow-sm" aria-label="Previous photo">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button id="pdpNext" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-paper/85 backdrop-blur-sm border border-hair flex items-center justify-center text-ink opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-ink hover:text-paper hover:scale-110 cursor-pointer shadow-sm" aria-label="Next photo">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <img id="pdpMain" src="${p.img}" alt="${p.name}" class="w-full h-auto object-contain block product-card-img">
+
+          <!-- Pagination Dots at Bottom of Photo Stage -->
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5" id="pdpDots">
+            ${gal.map((_, i) => `<button class="pdp-dot h-1.5 ${i === 0 ? 'w-5 bg-ink opacity-100' : 'w-1.5 bg-ink opacity-30'} rounded-full transition-all duration-300 cursor-pointer p-0 border-none" data-dot="${i}" aria-label="Photo ${i + 1}"></button>`).join('')}
+          </div>
+        </div>
+        
+        <!-- Subtle Thumbnail Strip -->
+        <div class="grid grid-cols-4 gap-3" id="pdpThumbs">
+          ${gal.map((g, i) => `
+            <button class="aspect-square bg-paper-2 border-b-2 ${i === 0 ? 'border-ink opacity-100' : 'border-transparent opacity-50'} p-2 transition-all hover:opacity-100 cursor-pointer" data-thumb="${g}">
+              <img class="w-full h-full object-contain" src="${g}">
+            </button>
+          `).join('')}
+        </div>
       </div>
-      <div>
-        <div class="text-[0.72rem] text-mute tracking-[0.06em] mb-5"><a class="cursor-pointer hover:text-ink" data-nav="shop">Collections</a> / <a class="cursor-pointer hover:text-ink" data-nav="shop">${p.cat}</a> / ${p.name}</div>
-        <div class="text-[0.7rem] tracking-[0.2em] uppercase text-mute font-semibold">${p.house}</div>
-        <h1 class="text-[clamp(2.6rem,5vw,4.2rem)] my-3 font-serif">${p.name}</h1>
-        <div class="font-serif text-[1.7rem]" id="pdpPrice">${formatPeso(pf('50ml'))}</div>
-        <p class="text-ink-2 mt-4 mb-9 max-w-[48ch] leading-[1.7]">${p.desc}</p>
-        <div class="grid grid-cols-3 gap-3 mb-6 w-full" id="pdpSizes">${SZ.map(s => `<button class="w-full h-full min-h-[76px] flex flex-col justify-center items-center border ${s.ml === '50ml' ? 'border-ink bg-ink text-paper' : 'border-hair'} px-2 py-3.5 transition-colors text-center cursor-pointer box-border" data-size="${s.ml}"><span class="block font-serif text-[1.05rem] sm:text-[1.2rem] leading-tight whitespace-nowrap">${s.ml}</span><span class="size-price block text-[0.76rem] mt-[4px] whitespace-nowrap ${s.ml === '50ml' ? 'text-[oklch(72%_0_0)]' : 'text-mute'}">${formatPeso(pf(s.ml))}</span></button>`).join('')}</div>
-        <div class="flex gap-5 sm:gap-6 w-full"><button class="btn btn-fill flex-1 justify-center" id="pdpAdd">Add to cart</button><button class="btn flex-1 justify-center" data-nav="book">Try it first</button></div>
-        <div class="border-t border-hair my-6 w-full">
-          <div class="grid grid-cols-[25%_75%] gap-3 py-[15px] border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">Top</span><span class="font-serif text-[1.15rem]">${p.top}</span></div>
-          <div class="grid grid-cols-[25%_75%] gap-3 py-[15px] border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">Heart</span><span class="font-serif text-[1.15rem]">${p.heart}</span></div>
-          <div class="grid grid-cols-[25%_75%] gap-3 py-[15px] border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">Base</span><span class="font-serif text-[1.15rem]">${p.base}</span></div>
+
+      <!-- Right: Minimalist Typography & Actions -->
+      <div class="pt-2 md:pt-4">
+        <div class="text-[0.68rem] tracking-[0.28em] uppercase text-mute font-medium mb-3">${p.house}</div>
+        <h1 class="text-[clamp(2.4rem,4.5vw,4rem)] font-serif leading-none tracking-tight font-normal text-ink mb-4">${p.name}</h1>
+        <div class="font-serif text-[1.6rem] md:text-[2rem] text-ink" id="pdpPrice">${formatPeso(pf('50ml'))}</div>
+
+        <p class="text-ink-2 mt-6 mb-8 text-[0.92rem] leading-[1.8] font-light max-w-[42ch]">${p.desc}</p>
+
+        <div class="h-px bg-hair my-8"></div>
+
+        <!-- Minimal Volume Selector -->
+        <div class="mb-8">
+          <div class="text-[0.64rem] tracking-[0.22em] uppercase text-mute font-medium mb-3">Volume</div>
+          <div class="grid grid-cols-3 gap-2.5" id="pdpSizes">
+            ${SZ.map(s => `
+              <button class="py-3 px-2 border ${s.ml === '50ml' ? 'border-ink bg-ink text-paper' : 'border-hair bg-transparent text-ink'} text-center transition-all cursor-pointer" data-size="${s.ml}">
+                <span class="block font-serif text-[0.98rem] leading-none mb-1">${s.ml}</span>
+                <span class="size-price block text-[0.68rem] tracking-wider opacity-70">${formatPeso(pf(s.ml))}</span>
+              </button>
+            `).join('')}
+          </div>
         </div>
-        <div class="grid grid-cols-3 items-center w-full mt-7 pt-6 border-t border-hair text-[0.78rem] sm:text-[0.82rem] text-ink-2">
-          <div class="flex gap-2 items-center justify-start"><i data-lucide="package" class="w-4 h-4 flex-none"></i><span>Ships in 24h</span></div>
-          <div class="flex gap-2 items-center justify-center"><i data-lucide="droplets" class="w-4 h-4 flex-none"></i><span>Decant available</span></div>
-          <div class="flex gap-2 items-center justify-end"><i data-lucide="gift" class="w-4 h-4 flex-none"></i><span>Free gift wrap</span></div>
+
+        <!-- Direct Actions -->
+        <div class="flex flex-col sm:flex-row gap-3 w-full mb-8">
+          <button class="btn btn-fill flex-1 justify-center py-4 text-[0.72rem] tracking-[0.18em]" id="pdpAdd">
+            Add to Bag
+          </button>
+          <button class="btn flex-1 justify-center py-4 text-[0.72rem] tracking-[0.18em]" data-nav="book">
+            Book Atelier Visit
+          </button>
         </div>
+
+        <!-- Collapsible Details Accordion List (+ items) -->
+        <div class="border-t border-hair divide-y divide-hair">
+          
+          <div class="pdp-accordion-item">
+            <button type="button" class="pdp-accordion-header">
+              <span class="text-[0.7rem] tracking-[0.2em] uppercase text-ink font-medium">Olfactory Notes</span>
+              <span class="pdp-accordion-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body text-[0.88rem] space-y-2.5">
+              <div class="grid grid-cols-[70px_1fr] gap-3 items-baseline">
+                <span class="text-[0.64rem] tracking-[0.2em] uppercase text-mute font-medium">Top</span>
+                <span class="font-serif text-ink">${p.top}</span>
+              </div>
+              <div class="grid grid-cols-[70px_1fr] gap-3 items-baseline">
+                <span class="text-[0.64rem] tracking-[0.2em] uppercase text-mute font-medium">Heart</span>
+                <span class="font-serif text-ink">${p.heart}</span>
+              </div>
+              <div class="grid grid-cols-[70px_1fr] gap-3 items-baseline">
+                <span class="text-[0.64rem] tracking-[0.2em] uppercase text-mute font-medium">Base</span>
+                <span class="font-serif text-ink">${p.base}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pdp-accordion-item">
+            <button type="button" class="pdp-accordion-header">
+              <span class="text-[0.7rem] tracking-[0.2em] uppercase text-ink font-medium">Wear & Longevity</span>
+              <span class="pdp-accordion-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body text-[0.88rem] text-ink-2 leading-relaxed font-light">
+              <p>Formulation: Authentic Eau de Parfum / Extrait formulation with rich concentration of essential oils.</p>
+              <p class="mt-2">Longevity: 8+ hours on skin with moderate to high sillage and a lingering trail.</p>
+            </div>
+          </div>
+
+          <div class="pdp-accordion-item">
+            <button type="button" class="pdp-accordion-header">
+              <span class="text-[0.7rem] tracking-[0.2em] uppercase text-ink font-medium">LBC Express Delivery</span>
+              <span class="pdp-accordion-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body text-[0.86rem] text-ink-2 leading-relaxed font-light">
+              <p>Dispatched from our Baguio atelier within 24 hours via <strong>LBC Express</strong>. Includes nationwide door-to-door tracking across the Philippines and complimentary Danscents gift packaging.</p>
+            </div>
+          </div>
+
+          <div class="pdp-accordion-item">
+            <button type="button" class="pdp-accordion-header">
+              <span class="text-[0.7rem] tracking-[0.2em] uppercase text-ink font-medium">100% Authentic Guarantee</span>
+              <span class="pdp-accordion-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body text-[0.86rem] text-ink-2 leading-relaxed font-light">
+              <p><strong>100% Authentic</strong> designer and niche formulation. Every bottle and decant is sourced directly and hand-checked by our nose in Baguio prior to dispatch.</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
-    <div class="h-px bg-hair mx-edge mt-24"></div>
-    <section class="px-edge py-[clamp(60px,8vw,120px)]">
-      <h2 class="text-[clamp(2rem,5vw,4rem)] font-serif mb-10 ru">You may also <span class="italic">wear.</span></h2>
+
+    <!-- Related Products -->
+    <div class="h-px bg-hair mx-edge"></div>
+    <section class="px-edge py-16 md:py-24">
+      <div class="flex items-end justify-between mb-10">
+        <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-serif font-normal">You may also <span class="italic">wear.</span></h2>
+        <a class="ghost-link cursor-pointer text-xs" data-nav="shop">Full library <i data-lucide="arrow-right"></i></a>
+      </div>
       <div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(20px,2.4vw,44px)]"></div>
     </section>`;
 
   document.getElementById('relatedGrid').innerHTML = P.filter(x => x.cat === p.cat && x.id !== p.id).concat(P.filter(x => x.cat !== p.cat)).slice(0, 3).map(card).join('');
-  document.querySelectorAll('#pdpThumbs button').forEach(b => { b.onclick = () => { document.getElementById('pdpMain').src = b.dataset.thumb; document.querySelectorAll('#pdpThumbs button').forEach(x => { x.classList.remove('border-ink'); x.classList.add('border-transparent'); }); b.classList.remove('border-transparent'); b.classList.add('border-ink'); }; });
+  
+  // Gallery state controller (syncs main image, thumbnails, and pagination dots)
+  let currentGalIdx = 0;
+  const updateGal = (idx) => {
+    currentGalIdx = (idx + gal.length) % gal.length;
+    const mainImg = document.getElementById('pdpMain');
+    if (mainImg) mainImg.src = gal[currentGalIdx];
+    
+    // sync thumbnails
+    document.querySelectorAll('#pdpThumbs button').forEach((x, i) => {
+      x.classList.toggle('border-ink', i === currentGalIdx);
+      x.classList.toggle('opacity-100', i === currentGalIdx);
+      x.classList.toggle('border-transparent', i !== currentGalIdx);
+      x.classList.toggle('opacity-50', i !== currentGalIdx);
+    });
+
+    // sync pagination dots
+    document.querySelectorAll('#pdpDots .pdp-dot').forEach((d, i) => {
+      if (i === currentGalIdx) {
+        d.className = 'pdp-dot h-1.5 w-5 rounded-full bg-ink opacity-100 transition-all duration-300 cursor-pointer p-0 border-none';
+      } else {
+        d.className = 'pdp-dot h-1.5 w-1.5 rounded-full bg-ink opacity-30 transition-all duration-300 cursor-pointer p-0 border-none';
+      }
+    });
+  };
+
+  // Prev / Next arrows click handlers
+  const prevBtn = document.getElementById('pdpPrev');
+  const nextBtn = document.getElementById('pdpNext');
+  if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); updateGal(currentGalIdx - 1); };
+  if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); updateGal(currentGalIdx + 1); };
+
+  // Pagination dots click handlers
+  document.querySelectorAll('#pdpDots .pdp-dot').forEach(d => {
+    d.onclick = (e) => { e.stopPropagation(); updateGal(+d.dataset.dot); };
+  });
+
+  // Thumbnail click handler
+  document.querySelectorAll('#pdpThumbs button').forEach((b, i) => { 
+    b.onclick = () => updateGal(i);
+  });
+
+  // Size click handler
   document.querySelectorAll('#pdpSizes button').forEach(b => {
     b.onclick = () => {
       pdpState.size = b.dataset.size;
       document.querySelectorAll('#pdpSizes button').forEach(x => {
         x.classList.remove('border-ink', 'bg-ink', 'text-paper');
-        x.classList.add('border-hair');
-        const sp = x.querySelector('.size-price');
-        if (sp) { sp.classList.remove('text-[oklch(72%_0_0)]'); sp.classList.add('text-mute'); }
+        x.classList.add('border-hair', 'bg-transparent', 'text-ink');
       });
-      b.classList.remove('border-hair');
+      b.classList.remove('border-hair', 'bg-transparent', 'text-ink');
       b.classList.add('border-ink', 'bg-ink', 'text-paper');
-      const sp = b.querySelector('.size-price');
-      if (sp) { sp.classList.remove('text-mute'); sp.classList.add('text-[oklch(72%_0_0)]'); }
       document.getElementById('pdpPrice').textContent = formatPeso(pf(b.dataset.size));
     };
   });
+
+  // Accordion click handler (+ toggle)
+  document.querySelectorAll('.pdp-accordion-header').forEach(header => {
+    header.onclick = () => {
+      const item = header.closest('.pdp-accordion-item');
+      item.classList.toggle('open');
+    };
+  });
+
   document.getElementById('pdpAdd').onclick = () => addToCart(p.id, pdpState.size, pf(pdpState.size));
   go('product');
 }
 
 // --- Cart ---
 function addToCart(id, size, price) { const ex = cart.find(c => c.id === id && c.size === size); if (ex) ex.qty++; else cart.push({ id, size, qty: 1, price }); count(); toast('Added to cart'); }
-function count() { document.getElementById('cartCount').textContent = cart.reduce((s, c) => s + c.qty, 0); }
+function count() {
+  const cnt = cart.reduce((s, c) => findProduct(c.id) ? s + c.qty : s, 0);
+  const el = document.getElementById('cartCount');
+  if (el) el.textContent = cnt;
+}
 function renderCart() {
   const w = document.getElementById('cartLines'), e = document.getElementById('cartEmpty');
   if (!w || !e) return;
+  cart = cart.filter(c => findProduct(c.id) !== null);
   if (!cart.length) { w.innerHTML = ''; e.style.display = 'block'; cartTotals(); return; } e.style.display = 'none';
   w.innerHTML = cart.map((c, i) => {
-    const p = P.find(x => x.id === c.id);
+    const p = findProduct(c.id);
+    if (!p) return '';
     return `<div class="grid grid-cols-[64px_1fr] sm:grid-cols-[88px_1fr_auto] gap-5 py-5 border-b border-hair items-center">
       <div class="bg-paper-2 aspect-square grid place-items-center overflow-hidden"><img class="h-[74%] object-contain" src="${p.img}"></div>
       <div><div class="font-serif text-[1.3rem]">${p.name}</div><div class="text-[0.68rem] tracking-[0.14em] uppercase text-mute mt-1 font-semibold">${p.house} · ${c.size}</div>
@@ -958,7 +1140,7 @@ function renderCart() {
   w.querySelectorAll('[data-q]').forEach(b => b.onclick = () => { const i = +b.dataset.i; b.dataset.q === 'inc' ? cart[i].qty++ : cart[i].qty = Math.max(1, cart[i].qty - 1); renderCart(); count(); });
   w.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { cart.splice(+b.dataset.rm, 1); renderCart(); count(); });
 }
-function cartTotals() { const s = cart.reduce((a, c) => a + c.price * c.qty, 0), sh = cart.length ? 180 : 0; document.getElementById('sub').textContent = formatPeso(s); document.getElementById('ship').textContent = formatPeso(sh); document.getElementById('grand').textContent = formatPeso(s + sh); }
+function cartTotals() { const s = cart.reduce((a, c) => { const p = findProduct(c.id); return p ? a + c.price * c.qty : a; }, 0), sh = cart.length ? 180 : 0; const _sub = document.getElementById('sub'), _ship = document.getElementById('ship'), _grand = document.getElementById('grand'); if (_sub) _sub.textContent = formatPeso(s); if (_ship) _ship.textContent = formatPeso(sh); if (_grand) _grand.textContent = formatPeso(s + sh); }
 
 // --- Calendar ---
 function buildCal() {
@@ -1088,6 +1270,7 @@ function frame() {
     const heroBlur = Math.min(8, sy * 0.012);
     heroBg.style.transform = `translate(-50%,-50%) translateY(${sy * 0.3}px)`;
     heroBottles.forEach(b => {
+      if (!b.classList.contains('active')) return;
       b.style.transform = `translate(-50%,-50%) translateY(${sy * 0.15}px) scale(${Math.max(0.8, 1 - sy * 0.0003)})`;
     });
     // Fade the hero section content as user scrolls down
@@ -1163,7 +1346,8 @@ function frame() {
     window.brandKineVelocity = 0.5 + (window.brandKineVelocity - 0.5) * 0.9;
     window.brandKineOffset += window.brandKineVelocity;
 
-    const loopWidth = kineHalf.offsetWidth + 56; // +56px for gap-14
+    const kineGap = parseFloat(getComputedStyle(kine).gap) || 56;
+    const loopWidth = kineHalf.offsetWidth + kineGap;
     kine.style.transform = `translate3d(${- (window.brandKineOffset % loopWidth)}px, 0, 0)`;
   }
 
@@ -1183,7 +1367,8 @@ function frame() {
     window.footKineOffset += window.footKineVelocity;
 
     const singleChild = footKine.querySelector('span');
-    const loopWidth = singleChild ? singleChild.offsetWidth : 500;
+    const footGap = parseFloat(getComputedStyle(footKine).gap) || 0;
+    const loopWidth = singleChild ? singleChild.offsetWidth + footGap : 500;
     footKine.style.transform = `translate3d(${- (window.footKineOffset % loopWidth)}px, 0, 0)`;
   }
 

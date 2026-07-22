@@ -65,8 +65,12 @@
     scrollbar-width: none;
   }
   .product-card-img {
-    will-change: transform;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform, filter;
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1), filter 0.7s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  }
+  .group:hover .product-card-img {
+    transform: scale(1.08) translateY(-5px) !important;
+    filter: drop-shadow(0 22px 35px rgba(0, 0, 0, 0.15)) !important;
   }
   .nav-search-bar {
     max-width: 0;
@@ -212,7 +216,7 @@
 .hero-bottle-img {
   position: absolute;
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.94);
+  transform: translate(-50%, -35%) scale(0.9);
   height: min(58vh, 480px);
   max-width: 80%;
   object-fit: contain;
@@ -222,7 +226,7 @@
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
   mix-blend-mode: multiply;
   will-change: transform, opacity;
-  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-bottle-img.active {
@@ -645,6 +649,163 @@
 /* Services children smooth scale */
 .rs > * {
   will-change: transform;
+}
+
+/* ============================================================
+   PDP (PRODUCT DETAIL PAGE) REDESIGN
+   ============================================================ */
+
+.pdp-hero-wrap {
+  position: relative;
+  width: 100%;
+  background: var(--color-paper-2);
+  border-bottom: 1px solid var(--color-hair);
+  overflow: hidden;
+}
+
+.pdp-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 16vw, 15rem);
+  font-style: italic;
+  font-weight: 800;
+  color: var(--color-ink);
+  opacity: 0.04;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.pdp-bottle-hero {
+  position: relative;
+  z-index: 10;
+  height: clamp(320px, 48vh, 520px);
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.pdp-bottle-hero img {
+  max-height: 100%;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.14));
+  transition: transform 0.8s var(--ease-custom);
+  will-change: transform;
+}
+
+.pdp-bottle-hero img:hover {
+  transform: scale(1.04) translateY(-6px);
+}
+
+.pdp-pyramid-card {
+  position: relative;
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-hair);
+  padding: clamp(20px, 3vw, 36px);
+  transition: border-color 0.4s ease, transform 0.4s var(--ease-custom);
+}
+
+.pdp-pyramid-card:hover {
+  border-color: var(--color-ink);
+}
+
+.pdp-size-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  border: 1px solid var(--color-hair);
+  background: var(--color-paper);
+  transition: all 0.35s var(--ease-custom);
+  cursor: pointer;
+}
+
+.pdp-size-btn:hover {
+  border-color: var(--color-ink);
+  transform: translateY(-2px);
+}
+
+.pdp-size-btn.active {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+
+.pdp-size-btn.active .size-price {
+  color: oklch(75% 0 0);
+}
+
+/* ============================================================
+   PDP ACCORDION
+   ============================================================ */
+
+.pdp-accordion-item {
+  border-bottom: 1px solid var(--color-hair);
+}
+
+.pdp-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+.pdp-accordion-header:hover {
+  color: var(--color-ink-2);
+}
+
+.pdp-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s var(--ease-custom), opacity 0.35s ease, padding 0.4s var(--ease-custom);
+}
+
+.pdp-accordion-item.open .pdp-accordion-body {
+  max-height: 240px;
+  opacity: 1;
+  padding-bottom: 1.25rem;
+}
+
+.pdp-accordion-icon {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 0.35s var(--ease-custom);
+}
+
+.pdp-accordion-item.open .pdp-accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+#mobileMenu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s var(--ease-custom), transform 0.5s var(--ease-custom);
+}
+
+#mobileMenu.mob-open {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ============================================================

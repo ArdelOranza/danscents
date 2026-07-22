@@ -75,6 +75,17 @@
     </div>
   </header>
 
+  <!-- Mobile Navigation Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[190] bg-paper/95 backdrop-blur-2xl flex-col items-center justify-center gap-8" style="display:none;">
+    <button id="mobileMenuClose" class="absolute top-5 right-6 p-2 bg-transparent border-none cursor-pointer" aria-label="Close menu">
+      <svg class="w-7 h-7 text-ink" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <a data-nav="home" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Home</a>
+    <a data-nav="shop" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Collections</a>
+    <a data-nav="book" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Book Atelier</a>
+    <a data-nav="event" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Events</a>
+  </div>
+
   <!-- Main Views Container -->
   <div id="views-container">
     <!-- Rendered via JS -->

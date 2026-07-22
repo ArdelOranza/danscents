@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DANSCENTS — Maison de Parfum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-paper text-ink font-sans overflow-x-hidden antialiased selection:bg-ink selection:text-paper">
+  
+  <!-- Film Grain Overlay -->
+  <div class="fixed inset-[-50%] z-[9000] pointer-events-none opacity-5 mix-blend-multiply bg-[url('data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' width=''200'' height=''200''%3E%3Cfilter id=''n''%3E%3CfeTurbulence type=''fractalNoise'' baseFrequency=''0.85'' numOctaves=''3'' stitchTiles=''stitch''/%3E%3C/filter%3E%3Crect width=''100%25'' height=''100%25'' filter=''url(%23n)''/%3E%3C/svg%3E')] animate-grain-shift"></div>
+
+  <!-- Scroll Progress -->
+  <div id="prog" class="fixed top-0 left-0 h-0.5 w-0 bg-ink z-[400]"></div>
+
+  <!-- Preloader -->
+  <div id="pre" class="fixed inset-0 z-[9800] bg-ink text-paper flex items-center justify-center transition-transform duration-1000 ease-[cubic-bezier(0.83,0,0.17,1)] delay-200">
+    <div class="text-center">
+      <img src="/src/assets/logo/file-white.svg" alt="Danscents Logo" class="h-16 w-auto mx-auto mb-6 object-contain opacity-0 animate-[fade_0.8s_ease_0.1s_forwards]" />
+      <div class="font-serif text-[clamp(2rem,6vw,4rem)] leading-none tracking-tight">DANSCENTS</div>
+    </div>
+  </div>
+
+  <!-- Modern Floating Rounded Glassmorphism Navbar -->
+  <header id="nav" class="fixed top-3.5 left-1/2 -translate-x-1/2 w-[calc(100%-1.75rem)] max-w-7xl z-[200] grid grid-cols-[auto_1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center px-6 md:px-8 h-18 md:h-20 rounded-full backdrop-blur-2xl bg-paper/80 shadow-[0_12px_35px_-5px_rgba(0,0,0,0.06)] transition-all duration-500 ease-custom">
+    <!-- Brand Mark -->
+    <a href="#" data-nav="home" class="flex items-center gap-3.5 no-underline text-ink group">
+      <img src="/src/assets/logo/file.svg" alt="Danscents Logo" class="h-8 md:h-9 w-auto flex-none object-contain transition-transform duration-500 group-hover:scale-105" />
+      <span class="flex flex-col leading-none">
+        <span class="font-serif font-bold text-lg md:text-xl tracking-[0.18em] text-ink">DANSCENTS</span>
+        <span class="font-sans text-[0.46rem] md:text-[0.5rem] tracking-[0.38em] uppercase text-mute mt-[3px] font-semibold">Fragrance Maison</span>
+      </span>
+    </a>
+    
+    <!-- Navigation Links -->
+    <nav class="hidden md:flex gap-9 justify-self-center items-center">
+      <a data-nav="home" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Home</a>
+      <a data-nav="shop" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Collections</a>
+      <a data-nav="event" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Events</a>
+      <a data-nav="book" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Book Atelier</a>
+    </nav>
+
+    <!-- Actions & Utilities -->
+    <div class="justify-self-end flex items-center gap-2 sm:gap-3.5">
+      <div id="navSearchWrap" class="flex items-center gap-1.5">
+        <button id="navSearchToggle" type="button" class="p-2 text-ink hover:scale-110 transition-all duration-300 bg-transparent border-none cursor-pointer flex items-center justify-center flex-none" title="Search catalog" aria-label="Search">
+          <svg class="w-5 h-5 text-ink" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div id="navSearchBox" class="nav-search-bar flex items-center bg-paper-2 border border-hair rounded-full shadow-sm">
+          <svg class="w-4 h-4 text-mute ml-3 mr-2 flex-none" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="navSearchInput" placeholder="Search perfume, house, note…" class="w-full bg-transparent border-none outline-none text-[0.82rem] font-sans text-ink placeholder:text-mute pr-2 py-1.5">
+          <button id="navSearchClose" type="button" class="p-1.5 mr-1 text-mute hover:text-ink bg-transparent border-none cursor-pointer flex items-center justify-center flex-none" aria-label="Close search">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <button data-nav="order" class="flex items-center gap-2.5 bg-ink text-paper px-4 py-2 rounded-full text-[0.72rem] font-semibold tracking-[0.16em] uppercase hover:bg-ink-2 transition-all duration-300 shadow-sm cursor-pointer hover:scale-[1.03] flex-none">
+        <span>Cart</span>
+        <span id="cartCount" class="w-5 h-5 rounded-full bg-paper text-ink text-[0.66rem] grid place-items-center font-bold tabular-nums">0</span>
+      </button>
+      <button id="burger" class="md:hidden flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1">
+        <span class="w-6 h-[1.5px] bg-ink block"></span>
+        <span class="w-6 h-[1.5px] bg-ink block"></span>
+        <span class="w-6 h-[1.5px] bg-ink block"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Views Container -->
+  <div id="views-container">
+    <!-- Rendered via JS -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-paper overflow-hidden">
+    <div class="py-[clamp(40px,6vw,80px)] overflow-hidden">
+      <div id="footKine" class="font-serif text-[clamp(4rem,16vw,15rem)] italic whitespace-nowrap opacity-90 flex gap-[0.3em] will-change-transform">
+        <span>DANSCENTS —&nbsp;</span><span>DANSCENTS —&nbsp;</span><span>DANSCENTS —&nbsp;</span><span>DANSCENTS —&nbsp;</span><span>DANSCENTS —&nbsp;</span><span>DANSCENTS —&nbsp;</span>
+      </div>
+    </div>
+    <div class="px-[clamp(18px,4vw,72px)] py-[clamp(30px,4vw,60px)] pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-9 border-t border-[oklch(30%_0_0)]">
+      <div>
+        <a href="#" data-nav="home" class="flex items-center gap-3.5 no-underline text-paper logo-hover">
+          <img src="/src/assets/logo/file-white.svg" alt="Danscents Logo" class="h-10 md:h-11 w-auto flex-none object-contain" />
+          <span class="flex flex-col leading-none">
+            <span class="font-serif font-bold text-xl md:text-2xl tracking-[0.09em]">DANSCENTS</span>
+            <span class="font-sans text-[0.48rem] md:text-[0.55rem] tracking-[0.34em] uppercase text-[oklch(70%_0_0)] mt-[3px]">Designer & Niche Perfume</span>
+          </span>
+        </a>
+        <p class="text-[oklch(72%_0_0)] text-sm max-w-[30ch] mt-4 font-light">A maison of designer and niche fragrance in Baguio. Chosen by nose, sold with honesty.</p>
+        <form class="flex border border-[oklch(40%_0_0)] mt-4 max-w-[290px]" id="nlForm">
+          <input type="email" placeholder="Email for new arrivals" id="nlInput" required class="flex-1 bg-transparent border-none px-3 py-3 text-paper font-sans text-sm outline-none placeholder-[oklch(60%_0_0)]">
+          <button type="submit" class="bg-paper text-ink border-none px-4 text-[0.68rem] tracking-[0.12em] uppercase font-semibold transition-colors hover:bg-gray-200">Join</button>
+        </form>
+      </div>
+      <div class="flex flex-col">
+        <h5 class="text-[0.66rem] tracking-[0.2em] uppercase text-[oklch(66%_0_0)] mb-4">Shop</h5>
+        <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">For Him</a>
+        <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">For Her</a>
+        <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Niche</a>
+        <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Discovery Sets</a>
+      </div>
+      <div class="flex flex-col">
+        <h5 class="text-[0.66rem] tracking-[0.2em] uppercase text-[oklch(66%_0_0)] mb-4">Maison</h5>
+        <a data-nav="event" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Events</a>
+        <a data-nav="book" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Book a Visit</a>
+        <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Samples</a>
+      </div>
+      <div class="flex flex-col">
+        <h5 class="text-[0.66rem] tracking-[0.2em] uppercase text-[oklch(66%_0_0)] mb-4">Contact</h5>
+        <a href="tel:09169321748" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper">0916 932 1748</a>
+        <a href="mailto:daniellagonas69@gmail.com" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper">Email us</a>
+      </div>
+    </div>
+    <div class="flex justify-between gap-4 flex-wrap px-[clamp(18px,4vw,72px)] py-5 border-t border-[oklch(30%_0_0)] text-[oklch(64%_0_0)] text-xs">
+      <span>© 2026 Danscents · Maison de Parfum</span>
+      <span class="tracking-[0.2em] uppercase text-[0.66rem]">Chosen by nose · Baguio</span>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-[150%] bg-ink text-paper px-6 py-4 rounded-full text-sm z-[600] flex gap-3 items-center transition-transform duration-500 ease-custom">
+    <i data-lucide="check" class="w-4 h-4"></i>
+    <span id="toastMsg">Action successful</span>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

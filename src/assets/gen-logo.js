@@ -1,0 +1,28 @@
+import sharp from 'sharp';
+import fs from 'fs';
+
+const svgLogoBlack = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="440" viewBox="0 0 200 220">
+  <g fill="#0A0A0A" fill-rule="evenodd">
+    <rect x="74" y="8" width="52" height="26" rx="5"/>
+    <rect x="84" y="34" width="32" height="14" rx="2"/>
+    <path d="M 47 54 C 53 54 54 90 54 122 C 54 154 53 190 47 190 C 41 190 40 154 40 122 C 40 90 41 54 47 54 Z"/>
+    <path d="M 75 54 L 148 54 C 154 54 160 60 160 66 L 160 178 C 160 184 154 190 148 190 L 75 190 C 69 190 65 184 65 178 L 65 66 C 65 60 69 54 75 54 Z M 77 66 C 122 66 148 88 148 122 C 148 156 122 178 77 178 L 77 166 C 112 166 134 148 134 122 C 134 96 112 78 77 78 Z M 77 178 C 118 178 126 142 108 136 C 90 130 80 152 96 166 C 104 174 77 178 77 178 Z" />
+  </g>
+</svg>`;
+
+const svgLogoWhite = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="440" viewBox="0 0 200 220">
+  <g fill="#FBF9F5" fill-rule="evenodd">
+    <rect x="74" y="8" width="52" height="26" rx="5"/>
+    <rect x="84" y="34" width="32" height="14" rx="2"/>
+    <path d="M 47 54 C 53 54 54 90 54 122 C 54 154 53 190 47 190 C 41 190 40 154 40 122 C 40 90 41 54 47 54 Z"/>
+    <path d="M 75 54 L 148 54 C 154 54 160 60 160 66 L 160 178 C 160 184 154 190 148 190 L 75 190 C 69 190 65 184 65 178 L 65 66 C 65 60 69 54 75 54 Z M 77 66 C 122 66 148 88 148 122 C 148 156 122 178 77 178 L 77 166 C 112 166 134 148 134 122 C 134 96 112 78 77 78 Z M 77 178 C 118 178 126 142 108 136 C 90 130 80 152 96 166 C 104 174 77 178 77 178 Z" />
+  </g>
+</svg>`;
+
+fs.writeFileSync('./src/assets/logo.svg', svgLogoBlack);
+fs.writeFileSync('./src/assets/logo-white.svg', svgLogoWhite);
+
+Promise.all([
+  sharp(Buffer.from(svgLogoBlack)).png().toFile('./src/assets/logo.png'),
+  sharp(Buffer.from(svgLogoWhite)).png().toFile('./src/assets/logo-white.png')
+]).then(() => console.log('Successfully created logo.png and logo-white.png'));

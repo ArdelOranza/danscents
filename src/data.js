@@ -1,4 +1,5 @@
 const heroImgModules = import.meta.glob('./assets/hero-photos/*.{jpeg,jpg,png,webp}', { eager: true, import: 'default' });
+const photosImgModules = import.meta.glob('./assets/photos/*.{jpeg,jpg,png,webp}', { eager: true, import: 'default' });
 const perfumeImgModules = import.meta.glob('./assets/perfume images/**/*.{jpeg,jpg,png}', { eager: true, import: 'default' });
 
 const imageList = [];
@@ -20,6 +21,19 @@ for (const path of sortedHeroPaths) {
     .replace(/^-|-$/g, '');
   if (!imageList.some(i => i.cleanName === cleanName)) {
     imageList.push({ path, url, filename, cleanName, isHeroFolder: true });
+  }
+}
+
+for (const path in photosImgModules) {
+  const url = photosImgModules[path];
+  const filename = path.split('/').pop() || '';
+  const cleanName = filename.toLowerCase()
+    .replace(/\.(jpg|png|jpeg|webp)/gi, '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+  if (!imageList.some(i => i.cleanName === cleanName)) {
+    imageList.push({ path, url, filename, cleanName, isHeroFolder: false });
   }
 }
 

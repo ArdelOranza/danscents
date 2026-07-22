@@ -1,6 +1,6 @@
 import './style.css';
 import { createIcons } from 'lucide';
-import { P, A, SZ, formatPeso } from './data.js';
+import { P, A, SZ, formatPeso, getPerfumeImage } from './data.js';
 
 import logoChanel from './assets/logo/chanel-svgrepo-com.svg';
 import logoDior from './assets/logo/dior-svgrepo-com.svg';
@@ -11,6 +11,14 @@ import logoHermes from './assets/logo/hermes-1-logo-svgrepo-com(1).svg';
 import logoYSL from './assets/logo/Saint_Laurent_idnR5GYFJx_0.svg';
 import logoByredo from './assets/logo/BYREDO.svg';
 import logoInitio from './assets/logo/696773cdd7d5f-INITIO-Parfums-Prives.svg';
+
+import photoByredo from './assets/photos/byredo.jpg';
+import photoCreed from './assets/photos/creed.webp';
+import photoDior from './assets/photos/dior.jpg';
+import photoHermes from './assets/photos/hermes.webp';
+import photoInitio from './assets/photos/initio.png';
+import photoTomFord from './assets/photos/tomford.jpeg';
+import photoYSL from './assets/photos/ysl.webp';
 
 const brandLogos = [
   { name: 'Chanel', src: logoChanel, h: 'h-8 sm:h-9' },
@@ -110,6 +118,8 @@ let cart = [
 ];
 let shopFilter = 'All';
 let pdpState = { id: null, size: '50ml' };
+let lastHomeSection = null;
+let lastBrandName = null;
 let calY = 2026, calM = 6, selDate = null, selTime = null, visit = 'Fragrance evening';
 const MO = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const TODAY = new Date(2026, 6, 21);
@@ -240,26 +250,59 @@ const views = {
         </div>
       </section>
 
-      <!-- EVENTS -->
-      <section class="bg-ink text-paper relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif italic text-[clamp(6rem,18vw,18rem)] text-paper opacity-[0.04] whitespace-nowrap will-change-transform" data-hero="evbg">Events</div>
-        <div class="relative z-20 px-edge py-[clamp(80px,11vw,170px)]">
-          <span class="text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-[oklch(72%_0_0)] ru">Upcoming · Baguio</span>
-          <div class="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-[clamp(40px,6vw,90px)] items-center mt-9">
-            <div>
-              <h2 class="text-[clamp(2.4rem,6vw,5.4rem)] text-paper ru d1 font-serif">Fragrance<br><span class="italic">evenings.</span></h2>
-              <p class="text-[oklch(78%_0_0)] max-w-[44ch] mt-6 font-light ru d2">Join us for guided scent experiences, new-arrival launches, and seasonal discovery nights at our Baguio atelier. Try before you buy, meet fellow enthusiasts, and explore rare bottles you won't find anywhere else.</p>
-              <div class="flex flex-wrap gap-y-4 gap-x-11 mt-9 ru d3">
-                <div class="border-t border-[oklch(38%_0_0)] pt-3 min-w-[120px]"><div class="font-serif text-[1.8rem] italic">Weekly</div><div class="text-[0.65rem] tracking-[0.14em] uppercase text-[oklch(66%_0_0)] mt-1">Thursday evenings</div></div>
-                <div class="border-t border-[oklch(38%_0_0)] pt-3 min-w-[120px]"><div class="font-serif text-[1.8rem] italic">10 seats</div><div class="text-[0.65rem] tracking-[0.14em] uppercase text-[oklch(66%_0_0)] mt-1">By reservation</div></div>
-                <div class="border-t border-[oklch(38%_0_0)] pt-3 min-w-[120px]"><div class="font-serif text-[1.8rem] italic">Free</div><div class="text-[0.65rem] tracking-[0.14em] uppercase text-[oklch(66%_0_0)] mt-1">No commitment</div></div>
-              </div>
-              <div class="mt-8 ru d3"><button class="btn btn-inv" data-nav="book">Reserve a seat</button></div>
-            </div>
-            <div class="overflow-hidden h-[clamp(280px,38vw,480px)] ri">
-              <img data-par="-0.12" src="${A.heroHome}" alt="Fragrance event" class="w-full h-[120%] object-cover will-change-transform opacity-90 hover:opacity-100 transition-opacity">
-            </div>
+      <!-- PURE LOGOS BRANDS SECTION -->
+      <!-- INTERACTIVE ANIMATED BRANDS SECTION -->
+      <section class="px-edge py-[clamp(50px,6vw,100px)] border-t border-hair bg-paper" id="section-brands">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-[clamp(28px,3.5vw,48px)]">
+          <div>
+            <span class="text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-mute ru block mb-2.5">§ 02 — Our Brands</span>
+            <h2 class="text-[clamp(2.2rem,5.5vw,4.5rem)] font-serif ru d1">Featured <span class="italic font-normal">brands.</span></h2>
           </div>
+          <p class="text-ink-2 max-w-[34ch] text-[0.9rem] leading-relaxed font-light ru d2 md:text-right">
+            Hover to reveal flagship scents. Click to filter catalog.
+          </p>
+        </div>
+
+        <!-- Interactive Animated Logo Grid with Hairline Borders -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 border-t border-l border-hair bg-hair gap-px rs">
+          ${[
+            { name: 'Maison Francis Kurkdjian', brand: 'Maison Francis Kurkdjian', logo: logoMFK, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris · Est. 2009', hero: 'Baccarat Rouge 540', img: A.baccarat || getPerfumeImage('Maison Francis Kurkdjian', 'Baccarat Rouge 540') },
+            { name: 'Creed 1760', brand: 'Creed', logo: logoCreed, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris & London · 1760', hero: 'Aventus EDP', img: photoCreed },
+            { name: 'Chanel', brand: 'Chanel', logo: logoChanel, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1910', hero: 'Bleu de Chanel', img: A.bleu || getPerfumeImage('Chanel', 'Bleu de Chanel EDP') },
+            { name: 'Dior', brand: 'Dior', logo: logoDior, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Est. 1946', hero: 'Sauvage Elixir', img: photoDior },
+            { name: 'Tom Ford', brand: 'Tom Ford', logo: logoTomFord, h: 'h-5 sm:h-6 md:h-7', origin: 'New York · Est. 2005', hero: 'Ombré Leather', img: photoTomFord },
+            { name: 'Hermès', brand: 'Hermès', logo: logoHermes, h: 'h-14 sm:h-18 md:h-20', origin: 'Paris · Est. 1837', hero: 'Terre d\'Hermès', img: photoHermes },
+            { name: 'Yves Saint Laurent', brand: 'Yves Saint Laurent', logo: logoYSL, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1961', hero: 'Libre EDP', img: photoYSL },
+            { name: 'Byredo', brand: 'Byredo', logo: logoByredo, h: 'h-5 sm:h-6 md:h-7', origin: 'Stockholm · Est. 2006', hero: 'Gypsy Water', img: photoByredo },
+            { name: 'Initio', brand: 'Initio', logo: logoInitio, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Haute Parfumerie', hero: 'Oud for Greatness', img: photoInitio }
+          ].map((b, i) => `
+            <div class="group relative bg-paper hover:bg-paper-2 p-5 sm:p-6 md:p-8 flex flex-col justify-between aspect-[16/11] sm:aspect-[4/3] transition-all duration-700 ease-custom cursor-pointer overflow-hidden border border-transparent hover:border-ink/20 shadow-none hover:shadow-xl" data-brand="${b.brand}" title="${b.name}" style="--i:${i}">
+              
+              <!-- Background Perfume Picture (Scales & fades in on hover) -->
+              <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-custom">
+                <img src="${b.img}" alt="${b.name}" class="w-full h-full object-cover opacity-[0.45] scale-110 group-hover:scale-100 transition-transform duration-700 ease-custom">
+                <div class="absolute inset-0 bg-gradient-to-t from-paper via-paper/50 to-transparent"></div>
+              </div>
+
+              <!-- Top Origin Badge (Slides down on hover) -->
+              <div class="relative z-10 flex justify-between items-center w-full transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-custom">
+                <span class="text-[0.6rem] tracking-[0.2em] uppercase font-semibold text-mute">${b.origin}</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-mute group-hover:text-ink transition-colors"></i>
+              </div>
+
+              <!-- Center Logo (Shifts up slightly on hover) -->
+              <div class="relative z-10 my-auto py-2 flex items-center justify-center transform group-hover:-translate-y-2.5 transition-transform duration-500 ease-custom">
+                <img src="${b.logo}" alt="${b.name}" class="${b.h} w-auto max-w-[88%] max-h-[75%] object-contain transition-all duration-500 ease-custom filter drop-shadow-sm group-hover:drop-shadow-md">
+              </div>
+
+              <!-- Bottom Fragrance Name & Action (Slides up on hover) -->
+              <div class="relative z-10 flex items-center justify-between w-full pt-2.5 border-t border-hair/80 transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-custom">
+                <span class="font-serif text-xs sm:text-sm text-ink font-medium">${b.hero}</span>
+                <span class="text-[0.62rem] tracking-[0.16em] uppercase font-semibold text-mute group-hover:text-ink transition-colors">Explore →</span>
+              </div>
+
+            </div>
+          `).join('')}
         </div>
       </section>
 
@@ -274,30 +317,30 @@ const views = {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rs">
           ${[
-            { name: 'Arvin Cruz', loc: 'Mandaluyong', stars: 5, text: 'Bought a bottle ng Ombre Leather. Legit seller! Sobrang daling kausap ni seller. Bilis din naship yung order from Baguio to Mandaluyong.', frag: 'Tom Ford · Ombré Leather' },
-            { name: 'JhanRich Mislang', loc: 'Verified Buyer', stars: 5, text: 'Great seller! 👌 I ordered Prada items for my husband, and I was pleasantly surprised by the quality. My husband loved them, so I ordered again as a graduation gift for my son. I\'m so happy because he loved it too! Highly recommended!', frag: 'Sospiro · Vibrato / Prada' },
-            { name: 'JL Umali', loc: 'Quezon Province', stars: 5, text: 'Legit! sobrang secured nun package, from Baguio city to Quezon Province 👌 Salamat Sir, superb CS 🫶', frag: 'Maison Selection' },
-            { name: 'Maria Rolaine Christel', loc: 'Verified Buyer', stars: 5, text: 'BANGOOO 😩💗', frag: 'YSL · Libre EDP' },
-            { name: 'Elaezar Cuison', loc: 'Verified Buyer', stars: 5, text: 'Salamat legit talaga, dating baog ngayon dalawang panganay na tas may susunod pa yatang isa #BelatedHappyFathersDay', frag: 'Compliment Magnet' },
-            { name: 'Carl Patrick Vinluan', loc: 'Verified Buyer', stars: 5, text: 'legit na legit! 👌', frag: 'Xerjoff · Torino 21' },
-            { name: 'Rhegine Camille Lacanaria', loc: 'Verified Buyer', stars: 5, text: 'Legit!!!! Go grab yours na!!! 🤌🏻🤌🏻🤌🏻', frag: 'Nishane · Ege' },
-            { name: 'Darxen Regpala', loc: 'Verified Buyer', stars: 5, text: 'Legit seller!! Maraming salamat boss!!', frag: 'Designer Fragrance' },
-            { name: 'Pril Ellaga', loc: 'Verified Buyer', stars: 5, text: '100% legit! Will definitely order again.', frag: 'Maison Selection' }
-          ].map((r, i) => '<div class="border border-hair p-[clamp(24px,2.6vw,36px)] flex flex-col justify-between" style="--i:' + i + '">' +
-            '<div>' +
-            '<div class="flex gap-1 mb-4 text-ink">' + '★'.repeat(r.stars) + '</div>' +
-            '<p class="text-[0.95rem] leading-[1.65] text-ink-2">"' + r.text + '"</p>' +
-            '<div class="text-[0.72rem] tracking-[0.1em] uppercase text-mute mt-4 font-semibold">' + r.frag + '</div>' +
-            '</div>' +
-            '<div class="flex items-center gap-3 mt-6 pt-5 border-t border-hair">' +
-            '<div class="w-9 h-9 rounded-full bg-ink text-paper grid place-items-center font-serif text-sm font-bold">' + r.name[0] + '</div>' +
-            '<div>' +
-            '<div class="font-semibold text-[0.88rem]">' + r.name + '</div>' +
-            '<div class="text-[0.7rem] text-mute">' + r.loc + '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>'
-          ).join('')}
+      { name: 'Arvin Cruz', loc: 'Mandaluyong', stars: 5, text: 'Bought a bottle ng Ombre Leather. Legit seller! Sobrang daling kausap ni seller. Bilis din naship yung order from Baguio to Mandaluyong.', frag: 'Tom Ford · Ombré Leather' },
+      { name: 'JhanRich Mislang', loc: 'Verified Buyer', stars: 5, text: 'Great seller! 👌 I ordered Prada items for my husband, and I was pleasantly surprised by the quality. My husband loved them, so I ordered again as a graduation gift for my son. I\'m so happy because he loved it too! Highly recommended!', frag: 'Sospiro · Vibrato / Prada' },
+      { name: 'JL Umali', loc: 'Quezon Province', stars: 5, text: 'Legit! sobrang secured nun package, from Baguio city to Quezon Province 👌 Salamat Sir, superb CS 🫶', frag: 'Maison Selection' },
+      { name: 'Maria Rolaine Christel', loc: 'Verified Buyer', stars: 5, text: 'BANGOOO 😩💗', frag: 'YSL · Libre EDP' },
+      { name: 'Elaezar Cuison', loc: 'Verified Buyer', stars: 5, text: 'Salamat legit talaga, dating baog ngayon dalawang panganay na tas may susunod pa yatang isa #BelatedHappyFathersDay', frag: 'Compliment Magnet' },
+      { name: 'Carl Patrick Vinluan', loc: 'Verified Buyer', stars: 5, text: 'legit na legit! 👌', frag: 'Xerjoff · Torino 21' },
+      { name: 'Rhegine Camille Lacanaria', loc: 'Verified Buyer', stars: 5, text: 'Legit!!!! Go grab yours na!!! 🤌🏻🤌🏻🤌🏻', frag: 'Nishane · Ege' },
+      { name: 'Darxen Regpala', loc: 'Verified Buyer', stars: 5, text: 'Legit seller!! Maraming salamat boss!!', frag: 'Designer Fragrance' },
+      { name: 'Pril Ellaga', loc: 'Verified Buyer', stars: 5, text: '100% legit! Will definitely order again.', frag: 'Maison Selection' }
+    ].map((r, i) => '<div class="border border-hair p-[clamp(24px,2.6vw,36px)] flex flex-col justify-between" style="--i:' + i + '">' +
+      '<div>' +
+      '<div class="flex gap-1 mb-4 text-ink">' + '★'.repeat(r.stars) + '</div>' +
+      '<p class="text-[0.95rem] leading-[1.65] text-ink-2">"' + r.text + '"</p>' +
+      '<div class="text-[0.72rem] tracking-[0.1em] uppercase text-mute mt-4 font-semibold">' + r.frag + '</div>' +
+      '</div>' +
+      '<div class="flex items-center gap-3 mt-6 pt-5 border-t border-hair">' +
+      '<div class="w-9 h-9 rounded-full bg-ink text-paper grid place-items-center font-serif text-sm font-bold">' + r.name[0] + '</div>' +
+      '<div>' +
+      '<div class="font-semibold text-[0.88rem]">' + r.name + '</div>' +
+      '<div class="text-[0.7rem] text-mute">' + r.loc + '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+    ).join('')}
         </div>
       </section>
 
@@ -324,6 +367,12 @@ const views = {
   shop: `
     <main class="view" id="view-shop">
       <section class="px-edge pt-[clamp(80px,11vw,170px)] pb-[30px]">
+        <div id="returnBanner" class="mb-6" style="display:none;">
+          <button id="btnReturnToSection" type="button" class="inline-flex items-center gap-2.5 text-[0.74rem] font-semibold tracking-[0.18em] uppercase text-ink-2 hover:text-ink transition-colors cursor-pointer group bg-transparent border-none p-0">
+            <i data-lucide="arrow-left" class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"></i>
+            <span id="returnLabel">Return to previous section</span>
+          </button>
+        </div>
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span class="text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-mute ru block">The Full Library (${P.length} Fragrances)</span>
@@ -524,6 +573,40 @@ function init() {
 
   // Router
   document.addEventListener('click', e => {
+    const retBtn = e.target.closest('#btnReturnToSection');
+    if (retBtn) {
+      e.preventDefault();
+      const targetSec = lastHomeSection;
+      lastHomeSection = null;
+      lastBrandName = null;
+      shopQuery = '';
+      const searchInput = document.getElementById('shopSearchInput');
+      if (searchInput) searchInput.value = '';
+      const navSearchInput = document.getElementById('navSearchInput');
+      if (navSearchInput) navSearchInput.value = '';
+      go('home');
+      if (targetSec) {
+        setTimeout(() => {
+          const el = document.getElementById(targetSec);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+      return;
+    }
+    const br = e.target.closest('[data-brand]');
+    if (br) {
+      e.preventDefault();
+      lastHomeSection = 'section-brands';
+      lastBrandName = br.dataset.brand;
+      shopFilter = 'All';
+      shopQuery = br.dataset.brand.toLowerCase().trim();
+      const searchInput = document.getElementById('shopSearchInput');
+      if (searchInput) searchInput.value = br.dataset.brand;
+      const navSearchInput = document.getElementById('navSearchInput');
+      if (navSearchInput) navSearchInput.value = br.dataset.brand;
+      go('shop');
+      return;
+    }
     const n = e.target.closest('[data-nav]');
     if (n) { e.preventDefault(); go(n.dataset.nav); }
     const f = e.target.closest('[data-filter]');
@@ -727,6 +810,19 @@ function card(p) {
 let shopQuery = '';
 
 function renderShop() {
+  const returnBanner = document.getElementById('returnBanner');
+  const returnLabel = document.getElementById('returnLabel');
+  if (returnBanner && returnLabel) {
+    if (lastHomeSection) {
+      returnBanner.style.display = 'block';
+      returnLabel.textContent = lastHomeSection === 'section-brands' && lastBrandName 
+        ? `Return to Featured Brands (${lastBrandName})` 
+        : 'Return to previous section';
+    } else {
+      returnBanner.style.display = 'none';
+    }
+  }
+
   const cats = ['All', ...new Set(P.map(p => p.cat))];
   const fc = document.getElementById('shopFilters');
   if (fc) fc.innerHTML = cats.map(c => `<button class="btn ${c === shopFilter ? 'btn-fill' : ''}" data-filter="${c}">${c}</button>`).join('');

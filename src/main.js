@@ -269,16 +269,16 @@ const views = {
         <!-- Interactive Animated Logo Grid with Hairline Borders -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 border-t border-l border-hair bg-hair gap-px rs">
           ${[
-            { name: 'Maison Francis Kurkdjian', brand: 'Maison Francis Kurkdjian', logo: logoMFK, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris · Est. 2009', hero: 'Baccarat Rouge 540', img: A.baccarat || getPerfumeImage('Maison Francis Kurkdjian', 'Baccarat Rouge 540') },
-            { name: 'Creed 1760', brand: 'Creed', logo: logoCreed, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris & London · 1760', hero: 'Aventus EDP', img: photoCreed },
-            { name: 'Chanel', brand: 'Chanel', logo: logoChanel, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1910', hero: 'Bleu de Chanel', img: A.bleu || getPerfumeImage('Chanel', 'Bleu de Chanel EDP') },
-            { name: 'Dior', brand: 'Dior', logo: logoDior, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Est. 1946', hero: 'Sauvage Elixir', img: photoDior },
-            { name: 'Tom Ford', brand: 'Tom Ford', logo: logoTomFord, h: 'h-5 sm:h-6 md:h-7', origin: 'New York · Est. 2005', hero: 'Ombré Leather', img: photoTomFord },
-            { name: 'Hermès', brand: 'Hermès', logo: logoHermes, h: 'h-14 sm:h-18 md:h-20', origin: 'Paris · Est. 1837', hero: 'Terre d\'Hermès', img: photoHermes },
-            { name: 'Yves Saint Laurent', brand: 'Yves Saint Laurent', logo: logoYSL, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1961', hero: 'Libre EDP', img: photoYSL },
-            { name: 'Byredo', brand: 'Byredo', logo: logoByredo, h: 'h-5 sm:h-6 md:h-7', origin: 'Stockholm · Est. 2006', hero: 'Gypsy Water', img: photoByredo },
-            { name: 'Initio', brand: 'Initio', logo: logoInitio, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Haute Parfumerie', hero: 'Oud for Greatness', img: photoInitio }
-          ].map((b, i) => `
+      { name: 'Maison Francis Kurkdjian', brand: 'Maison Francis Kurkdjian', logo: logoMFK, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris · Est. 2009', hero: 'Baccarat Rouge 540', img: A.baccarat || getPerfumeImage('Maison Francis Kurkdjian', 'Baccarat Rouge 540') },
+      { name: 'Creed 1760', brand: 'Creed', logo: logoCreed, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris & London · 1760', hero: 'Aventus EDP', img: photoCreed },
+      { name: 'Chanel', brand: 'Chanel', logo: logoChanel, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1910', hero: 'Bleu de Chanel', img: A.bleu || getPerfumeImage('Chanel', 'Bleu de Chanel EDP') },
+      { name: 'Dior', brand: 'Dior', logo: logoDior, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Est. 1946', hero: 'Sauvage Elixir', img: photoDior },
+      { name: 'Tom Ford', brand: 'Tom Ford', logo: logoTomFord, h: 'h-5 sm:h-6 md:h-7', origin: 'New York · Est. 2005', hero: 'Ombré Leather', img: photoTomFord },
+      { name: 'Hermès', brand: 'Hermès', logo: logoHermes, h: 'h-14 sm:h-18 md:h-20', origin: 'Paris · Est. 1837', hero: 'Terre d\'Hermès', img: photoHermes },
+      { name: 'Yves Saint Laurent', brand: 'Yves Saint Laurent', logo: logoYSL, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1961', hero: 'Libre EDP', img: photoYSL },
+      { name: 'Byredo', brand: 'Byredo', logo: logoByredo, h: 'h-5 sm:h-6 md:h-7', origin: 'Stockholm · Est. 2006', hero: 'Gypsy Water', img: photoByredo },
+      { name: 'Initio', brand: 'Initio', logo: logoInitio, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Haute Parfumerie', hero: 'Oud for Greatness', img: photoInitio }
+    ].map((b, i) => `
             <div class="group relative bg-paper hover:bg-paper-2 p-5 sm:p-6 md:p-8 flex flex-col justify-between aspect-[16/11] sm:aspect-[4/3] transition-all duration-700 ease-custom cursor-pointer overflow-hidden border border-transparent hover:border-ink/20 shadow-none hover:shadow-xl" data-brand="${b.brand}" title="${b.name}" style="--i:${i}">
               
               <!-- Background Perfume Picture (Scales & fades in on hover) -->
@@ -295,7 +295,7 @@ const views = {
 
               <!-- Center Logo (Shifts up slightly on hover) -->
               <div class="relative z-10 my-auto py-2 flex items-center justify-center transform group-hover:-translate-y-2.5 transition-transform duration-500 ease-custom">
-                <img src="${b.logo}" alt="${b.name}" class="${b.h} w-auto max-w-[88%] max-h-[75%] object-contain transition-all duration-500 ease-custom filter drop-shadow-sm group-hover:drop-shadow-md">
+                <img src="${b.logo}" alt="${b.name}" class="${b.h} w-auto max-w-[94%] max-h-[88%] object-contain transition-all duration-500 ease-custom filter drop-shadow-sm group-hover:drop-shadow-md" style="view-transition-name: brand-logo-${b.brand.replace(/[^a-z0-9]/gi, '-').toLowerCase()};">
               </div>
 
               <!-- Bottom Fragrance Name & Action (Slides up on hover) -->
@@ -522,8 +522,108 @@ const views = {
         </aside>
       </div>
     </main>
+  `,
+
+  brand: `
+    <main class="view" id="view-brand">
+      <div id="brandShowcase"></div>
+    </main>
   `
 };
+
+const brandData = [
+  { name: 'Maison Francis Kurkdjian', brand: 'Maison Francis Kurkdjian', logo: logoMFK, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris · Est. 2009', hero: 'Baccarat Rouge 540', img: A.baccarat, desc: 'Master perfumer Francis Kurkdjian envisions fragrance as an invisible garment of freedom, emotion, and French savoir-faire.' },
+  { name: 'Creed 1760', brand: 'Creed', logo: logoCreed, h: 'h-8 sm:h-10 md:h-12', origin: 'Paris & London · Est. 1760', hero: 'Aventus EDP', img: photoCreed, desc: 'Seven generations of royal fragrance heritage. Hand-compounded infusions using rare ingredients harvested across continents.' },
+  { name: 'Chanel', brand: 'Chanel', logo: logoChanel, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1910', hero: 'Bleu de Chanel', img: A.bleu, desc: 'The revolutionary house of Gabrielle Chanel. Timeless elegance, avant-garde formulations, and Parisian sophistication.' },
+  { name: 'Dior', brand: 'Dior', logo: logoDior, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Est. 1946', hero: 'Sauvage Elixir', img: photoDior, desc: 'Christian Dior’s vision of grand French perfumery. Wild sophistication, noble ingredients, and intense trails.' },
+  { name: 'Tom Ford', brand: 'Tom Ford', logo: logoTomFord, h: 'h-5 sm:h-6 md:h-7', origin: 'New York · Est. 2005', hero: 'Ombré Leather', img: photoTomFord, desc: 'Unapologetic glamour and sensual luxury. Bold leather, exotic woods, and intoxicating accords for the confident.' },
+  { name: 'Hermès', brand: 'Hermès', logo: logoHermes, h: 'h-14 sm:h-18 md:h-20', origin: 'Paris · Est. 1837', hero: 'Terre d\'Hermès', img: photoHermes, desc: 'Artisanal craft and poetic simplicity. Mineral earth, sunlit citruses, and airy botanical lightness.' },
+  { name: 'Yves Saint Laurent', brand: 'Yves Saint Laurent', logo: logoYSL, h: 'h-9 sm:h-11 md:h-13', origin: 'Paris · Est. 1961', hero: 'Libre EDP', img: photoYSL, desc: 'The tension between French elegance and rock-and-roll rebellion. Cool lavenders, sultry vanilla, and golden orange blossoms.' },
+  { name: 'Byredo', brand: 'Byredo', logo: logoByredo, h: 'h-5 sm:h-6 md:h-7', origin: 'Stockholm · Est. 2006', hero: 'Gypsy Water', img: photoByredo, desc: 'Ben Gorham’s Swedish luxury maison translating memory and emotion into minimalist olfactory art.' },
+  { name: 'Initio', brand: 'Initio', logo: logoInitio, h: 'h-11 sm:h-14 md:h-16', origin: 'Paris · Haute Parfumerie', hero: 'Oud for Greatness', img: photoInitio, desc: 'Functional fragrance elevated to sacred geometry. Power, attraction, and mystical sacred woods.' }
+];
+
+function openBrand(brandName) {
+  if (!brandName) return;
+  const cleanQuery = brandName.toLowerCase().trim();
+  
+  const b = brandData.find(x => 
+    x.brand.toLowerCase().includes(cleanQuery) || 
+    cleanQuery.includes(x.brand.toLowerCase()) ||
+    x.name.toLowerCase().includes(cleanQuery) ||
+    cleanQuery.includes(x.name.toLowerCase())
+  );
+
+  const searchTerms = [cleanQuery];
+  if (b) {
+    searchTerms.push(b.brand.toLowerCase());
+    searchTerms.push(b.name.toLowerCase());
+    if (b.brand.includes('Francis')) searchTerms.push('kurkdjian');
+    if (b.brand.includes('Laurent')) searchTerms.push('ysl', 'saint laurent');
+  }
+
+  const brandPerfumes = P.filter(p => {
+    const h = p.house.toLowerCase();
+    return searchTerms.some(term => h.includes(term) || term.includes(h));
+  });
+
+  const bName = b ? b.name : brandName;
+  const bLogo = b ? b.logo : null;
+  const bOrigin = b ? b.origin : 'Maison de Parfum';
+  const bDesc = b ? b.desc : `Explore the complete fragrance collection of ${bName} at Danscents.`;
+  const brandSlug = (b ? b.brand : bName).replace(/[^a-z0-9]/gi, '-').toLowerCase();
+
+  const viewEl = document.getElementById('view-brand');
+  if (!viewEl) return;
+
+  viewEl.innerHTML = `
+    <!-- Minimalist Brand Header -->
+    <div class="px-edge pt-[120px] md:pt-[140px] pb-4 flex items-center justify-between border-b border-hair ru">
+      <button data-nav="home" class="inline-flex items-center gap-2 text-[0.72rem] font-medium tracking-[0.18em] uppercase text-mute hover:text-ink transition-colors cursor-pointer bg-transparent border-none p-0">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+        <span>Return to Maisons</span>
+      </button>
+      <span class="text-[0.68rem] tracking-[0.2em] uppercase text-mute font-semibold">${bOrigin}</span>
+    </div>
+
+    <!-- Minimalist Brand Hero Section -->
+    <section class="px-edge py-8 md:py-12 bg-paper text-ink ru d1">
+      <div class="max-w-4xl">
+        <span class="text-[0.68rem] tracking-[0.28em] uppercase text-mute font-semibold block mb-3">Featured Maison</span>
+        ${bLogo ? `
+          <div class="mb-4 max-w-[340px] sm:max-w-[480px]">
+            <img src="${bLogo}" alt="${bName}" class="h-12 sm:h-16 md:h-20 w-auto object-contain filter brightness-0 dark:brightness-200" style="view-transition-name: brand-logo-${brandSlug};" />
+          </div>
+        ` : ''}
+        <h1 class="text-[clamp(2.6rem,6vw,4.8rem)] font-serif leading-none tracking-tight text-ink mb-4 font-normal">${bName}</h1>
+        <p class="text-ink-2 text-[0.96rem] leading-[1.8] font-light max-w-[48ch]">${bDesc}</p>
+      </div>
+    </section>
+
+    <div class="h-px bg-hair mx-edge line-reveal"></div>
+
+    <!-- Brand Fragrance Library Grid -->
+    <section class="px-edge py-10 md:py-16 ru d2">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <span class="text-[0.64rem] tracking-[0.24em] uppercase text-mute font-semibold block mb-2">${bName} Library</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-serif font-normal text-ink">Creations <span class="italic">archive.</span></h2>
+        </div>
+        <span class="text-[0.7rem] text-mute tracking-[0.14em] uppercase font-semibold">${brandPerfumes.length} Fragrances</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(20px,2.4vw,44px)]">
+        ${brandPerfumes.length > 0 ? brandPerfumes.map(card).join('') : '<p class="col-span-full py-16 text-center text-mute font-serif text-lg">No fragrances currently cataloged for this maison.</p>'}
+      </div>
+    </section>
+  `;
+
+  go('brand');
+
+  setTimeout(() => {
+    document.querySelectorAll('#view-brand .ru, #view-brand .line-reveal').forEach(el => el.classList.add('in'));
+  }, 60);
+}
 
 async function preloadAllImages() {
   const urls = new Set();
@@ -596,18 +696,30 @@ function init() {
       }
       return;
     }
+    const bScroll = e.target.closest('[data-scroll-brands]');
+    if (bScroll) {
+      e.preventDefault();
+      const mobMenu = document.getElementById('mobileMenu');
+      if (mobMenu && mobMenu.style.display !== 'none') {
+        mobMenu.classList.remove('mob-open');
+        setTimeout(() => { mobMenu.style.display = 'none'; }, 300);
+      }
+      go('home');
+      setTimeout(() => {
+        const sec = document.getElementById('section-brands');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
     const br = e.target.closest('[data-brand]');
     if (br) {
       e.preventDefault();
-      lastHomeSection = 'section-brands';
-      lastBrandName = br.dataset.brand;
-      shopFilter = 'All';
-      shopQuery = br.dataset.brand.toLowerCase().trim();
-      const searchInput = document.getElementById('shopSearchInput');
-      if (searchInput) searchInput.value = br.dataset.brand;
-      const navSearchInput = document.getElementById('navSearchInput');
-      if (navSearchInput) navSearchInput.value = br.dataset.brand;
-      go('shop');
+      br.style.transition = 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)';
+      br.style.transform = 'scale(0.97)';
+      setTimeout(() => {
+        br.style.transform = '';
+        openBrand(br.dataset.brand);
+      }, 120);
       return;
     }
     const n = e.target.closest('[data-nav]');
@@ -756,8 +868,10 @@ function setHeroSlide(idx) {
     if (metaClick) metaClick.dataset.open = slide.id;
 
     // Text enter animation
-    animEls.forEach(el => el.classList.remove('out'));
-  }, 220);
+    animEls.forEach(el => {
+      if (el) el.classList.remove('out');
+    });
+  }, 450);
 
   // Dots update
   if (dotsContainer) {
@@ -788,7 +902,7 @@ function startHeroAuto() {
   heroTimer = setInterval(() => {
     heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
     setHeroSlide(heroSlideIndex);
-  }, 4800);
+  }, 7000);
 }
 
 function go(name) {
@@ -827,8 +941,8 @@ function renderShop() {
   if (returnBanner && returnLabel) {
     if (lastHomeSection) {
       returnBanner.style.display = 'block';
-      returnLabel.textContent = lastHomeSection === 'section-brands' && lastBrandName 
-        ? `Return to Featured Brands (${lastBrandName})` 
+      returnLabel.textContent = lastHomeSection === 'section-brands' && lastBrandName
+        ? `Return to Featured Brands (${lastBrandName})`
         : 'Return to previous section';
     } else {
       returnBanner.style.display = 'none';
@@ -1045,14 +1159,14 @@ function openProduct(id) {
     </section>`;
 
   document.getElementById('relatedGrid').innerHTML = P.filter(x => x.cat === p.cat && x.id !== p.id).concat(P.filter(x => x.cat !== p.cat)).slice(0, 3).map(card).join('');
-  
+
   // Gallery state controller (syncs main image, thumbnails, and pagination dots)
   let currentGalIdx = 0;
   const updateGal = (idx) => {
     currentGalIdx = (idx + gal.length) % gal.length;
     const mainImg = document.getElementById('pdpMain');
     if (mainImg) mainImg.src = gal[currentGalIdx];
-    
+
     // sync thumbnails
     document.querySelectorAll('#pdpThumbs button').forEach((x, i) => {
       x.classList.toggle('border-ink', i === currentGalIdx);
@@ -1083,7 +1197,7 @@ function openProduct(id) {
   });
 
   // Thumbnail click handler
-  document.querySelectorAll('#pdpThumbs button').forEach((b, i) => { 
+  document.querySelectorAll('#pdpThumbs button').forEach((b, i) => {
     b.onclick = () => updateGal(i);
   });
 

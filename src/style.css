@@ -12,7 +12,9 @@
   --font-serif: "Bodoni Moda", Georgia, serif;
   --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
 
-  --ease-custom: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-custom: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
   --spacing-edge: clamp(18px, 4vw, 72px);
 }
@@ -29,6 +31,8 @@
     font-weight: 400;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body.lock {
@@ -74,12 +78,18 @@
 
   .product-card-img {
     will-change: transform, filter;
-    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1), filter 0.7s cubic-bezier(0.19, 1, 0.22, 1) !important;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .group:hover .product-card-img {
-    transform: scale(1.08) translateY(-5px) !important;
-    filter: drop-shadow(0 22px 35px rgba(0, 0, 0, 0.15)) !important;
+    transform: translate3d(0, -7px, 0) scale(1.07) !important;
+    filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.16)) !important;
+  }
+
+  .cart-bump {
+    animation: cartBump 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .nav-search-bar {
@@ -168,6 +178,12 @@
   to {
     transform: translateY(0);
   }
+}
+
+@keyframes cartBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
 }
 
 @keyframes drop {

@@ -1289,7 +1289,12 @@ function addToCart(id, size, price) { const ex = cart.find(c => c.id === id && c
 function count() {
   const cnt = cart.reduce((s, c) => findProduct(c.id) ? s + c.qty : s, 0);
   const el = document.getElementById('cartCount');
-  if (el) el.textContent = cnt;
+  if (el) {
+    el.textContent = cnt;
+    el.classList.remove('cart-bump');
+    void el.offsetWidth;
+    el.classList.add('cart-bump');
+  }
 }
 function renderCart() {
   const w = document.getElementById('cartLines'), e = document.getElementById('cartEmpty');

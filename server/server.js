@@ -67,7 +67,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString(), db: 'connected' });
 });
 
-// 2. GET /api/products - Secure product search & listing
+// 2. GET /api/products -  product search & listing
 app.get('/api/products', (req, res) => {
   try {
     const category = req.query.category ? sanitize(String(req.query.category)) : null;
@@ -123,7 +123,7 @@ app.get('/api/products/:id', (req, res) => {
   }
 });
 
-// 4. POST /api/orders - Secure Order Placement with Server-Validated Pricing
+// 4. POST /api/orders -  Order Placement with Server-Validated Pricing
 app.post('/api/orders', (req, res) => {
   try {
     const { customer_name, customer_phone, delivery_address, items } = req.body;
@@ -141,7 +141,7 @@ app.post('/api/orders', (req, res) => {
       return res.status(400).json({ success: false, error: 'Cart cannot be empty.' });
     }
 
-    // Recalculate prices from DB securely to prevent price tampering
+    // Recalculate prices from DB to prevent price tampering
     let subtotal = 0;
     const validatedItems = [];
 
@@ -177,7 +177,7 @@ app.post('/api/orders', (req, res) => {
     const grandTotal = subtotal + shippingFee;
     const orderNumber = 'DS-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(100 + Math.random() * 900);
 
-    // Save order securely inside transaction
+    // Save order  inside transaction
     db.exec('BEGIN TRANSACTION;');
     try {
       const orderStmt = db.prepare(`
@@ -223,7 +223,7 @@ app.post('/api/orders', (req, res) => {
   }
 });
 
-// 5. POST /api/bookings - Secure Visit Reservation
+// 5. POST /api/bookings -  Visit Reservation
 app.post('/api/bookings', (req, res) => {
   try {
     const { name, email, phone, visit_date, visit_time, fragrance_notes } = req.body;
@@ -270,5 +270,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Secure Danscents REST API Server listening on http://localhost:${PORT}`);
+  console.log(`🚀  Danscents REST API Server listening on http://localhost:${PORT}`);
 });

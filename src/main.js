@@ -190,10 +190,10 @@ const views = {
         <div class="relative h-[clamp(360px,50vw,600px)] mt-8 md:mt-0">
           <span class="absolute -top-[6%] right-[8%] font-serif text-[clamp(6rem,12vw,11rem)] italic text-ink opacity-[0.08] z-10">01</span>
           <div class="absolute top-0 left-0 w-[62%] h-[74%] z-20 overflow-hidden bg-paper-2 ri" data-par="0.12">
-            <img class="w-full h-full object-contain p-6 transition-all duration-500 hover:scale-105" src="${A.grandSoir}" alt="Maison Francis Kurkdjian Grand Soir">
+            <img class="w-full h-full object-contain p-6 transition-opacity duration-500 hover:opacity-90" src="${A.grandSoir}" alt="Maison Francis Kurkdjian Grand Soir">
           </div>
           <div class="absolute bottom-0 right-0 w-[52%] h-[60%] z-30 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)] overflow-hidden bg-paper-2 ri" data-par="-0.1">
-            <img class="w-full h-full object-contain p-6 transition-all duration-500 hover:scale-105" src="${A.goodgirl}" alt="Carolina Herrera Good Girl">
+            <img class="w-full h-full object-contain p-6 transition-opacity duration-500 hover:opacity-90" src="${A.goodgirl}" alt="Carolina Herrera Good Girl">
           </div>
         </div>
       </section>
@@ -212,7 +212,7 @@ const views = {
       <section class="cat-showcase" data-nav="shop">
         <div class="cat-img-panel ri">
           <span class="cat-big-num" data-par="0.15">01</span>
-          <img class="cat-img transition-all duration-700 hover:scale-105" data-par="-0.06" src="${A.aventus}" alt="For Him Collection">
+          <img class="cat-img transition-opacity duration-700 hover:opacity-90" data-par="-0.06" src="${A.aventus}" alt="For Him Collection">
         </div>
         <div class="cat-text-panel">
           <span class="cat-eyebrow ru">Collection 01</span>
@@ -227,7 +227,7 @@ const views = {
       <section class="cat-showcase cat-reverse" data-nav="shop">
         <div class="cat-img-panel ri">
           <span class="cat-big-num" data-par="0.15">02</span>
-          <img class="cat-img transition-all duration-700 hover:scale-105" data-par="-0.06" src="${A.delina}" alt="For Her Collection">
+          <img class="cat-img transition-opacity duration-700 hover:opacity-90" data-par="-0.06" src="${A.delina}" alt="For Her Collection">
         </div>
         <div class="cat-text-panel">
           <span class="cat-eyebrow ru">Collection 02</span>
@@ -242,7 +242,7 @@ const views = {
       <section class="cat-showcase" data-nav="shop">
         <div class="cat-img-panel ri">
           <span class="cat-big-num" data-par="0.15">03</span>
-          <img class="cat-img transition-all duration-700 hover:scale-105" data-par="-0.06" src="${A.baccarat}" alt="Niche Collection">
+          <img class="cat-img transition-opacity duration-700 hover:opacity-90" data-par="-0.06" src="${A.baccarat}" alt="Niche Collection">
         </div>
         <div class="cat-text-panel">
           <span class="cat-eyebrow ru">Collection 03</span>
@@ -281,9 +281,9 @@ const views = {
     ].map((b, i) => `
             <div class="group relative bg-paper hover:bg-paper-2 p-5 sm:p-6 md:p-8 flex flex-col justify-between aspect-[16/11] sm:aspect-[4/3] transition-all duration-700 ease-custom cursor-pointer overflow-hidden border border-transparent hover:border-ink/20 shadow-none hover:shadow-xl" data-brand="${b.brand}" title="${b.name}" style="--i:${i}">
               
-              <!-- Background Perfume Picture (Scales & fades in on hover) -->
+              <!-- Background Perfume Picture (Fades in on hover) -->
               <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-custom">
-                <img src="${b.img}" alt="${b.name}" class="w-full h-full object-cover opacity-[0.45] scale-110 group-hover:scale-100 transition-transform duration-700 ease-custom">
+                <img src="${b.img}" alt="${b.name}" class="w-full h-full object-cover opacity-[0.45] transition-opacity duration-700 ease-custom">
                 <div class="absolute inset-0 bg-gradient-to-t from-paper via-paper/50 to-transparent"></div>
               </div>
 
@@ -381,10 +381,13 @@ const views = {
             <span class="text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-mute ru block">The Full Library (${P.length} Fragrances)</span>
             <h1 class="font-serif text-[clamp(2.8rem,8vw,6.5rem)] mt-3 ru d1">Collections</h1>
           </div>
-          <div class="w-full md:w-80 ru d2">
-            <div class="relative">
-              <input type="text" id="shopSearchInput" placeholder="Search by name, brand, or note…" class="w-full bg-paper border border-hair px-4 py-3 pl-10 text-sm font-sans text-ink outline-none transition-colors focus:border-ink placeholder:text-mute">
-              <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-mute pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <div class="w-full md:w-84 ru d2">
+            <div class="relative group">
+              <input type="text" id="shopSearchInput" placeholder="Search by name, brand, or note…" class="w-full bg-paper-2/60 backdrop-blur-md border border-hair/90 rounded-full px-4 py-3 pl-11 pr-10 text-[0.85rem] font-sans text-ink outline-none transition-all duration-300 hover:border-ink/40 focus:border-ink focus:bg-paper focus:shadow-[0_8px_30px_-6px_rgba(0,0,0,0.08)] placeholder:text-mute/70">
+              <svg class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-mute group-focus-within:text-ink transition-colors duration-300 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <button id="shopSearchClear" type="button" class="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-mute hover:text-ink hover:rotate-90 transition-all duration-300 bg-transparent border-none cursor-pointer hidden" aria-label="Clear search">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
             </div>
           </div>
         </div>
@@ -956,10 +959,6 @@ function initHeroCarousel() {
 
 function startHeroAuto() {
   clearInterval(heroTimer);
-  heroTimer = setInterval(() => {
-    heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
-    setHeroSlide(heroSlideIndex);
-  }, 7000);
 }
 
 function go(name) {
@@ -1011,16 +1010,30 @@ function renderShop() {
   if (fc) fc.innerHTML = cats.map(c => `<button class="btn ${c === shopFilter ? 'btn-fill' : ''}" data-filter="${c}">${c}</button>`).join('');
 
   const searchInput = document.getElementById('shopSearchInput');
+  const searchClearBtn = document.getElementById('shopSearchClear');
   if (searchInput) {
     searchInput.value = shopQuery;
+    if (searchClearBtn) searchClearBtn.classList.toggle('hidden', !shopQuery);
     if (!searchInput.dataset.bound) {
       searchInput.dataset.bound = 'true';
       searchInput.addEventListener('input', (e) => {
         shopQuery = e.target.value.toLowerCase().trim();
+        if (searchClearBtn) searchClearBtn.classList.toggle('hidden', !e.target.value);
         const nsi = document.getElementById('navSearchInput');
         if (nsi) nsi.value = e.target.value;
         renderShopGrid();
       });
+      if (searchClearBtn) {
+        searchClearBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          shopQuery = '';
+          searchClearBtn.classList.add('hidden');
+          const nsi = document.getElementById('navSearchInput');
+          if (nsi) nsi.value = '';
+          renderShopGrid();
+          searchInput.focus();
+        });
+      }
     }
   }
 
@@ -1081,9 +1094,20 @@ function openProduct(id) {
     <!-- Minimalist Main Stage -->
     <div class="px-edge pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-[clamp(32px,6vw,96px)] items-start">
       
-      <!-- Left: Clean Bottle Stage -->
-      <div class="lg:sticky lg:top-[100px] space-y-4 max-w-[78%] sm:max-w-[75%] mx-auto lg:mx-0">
-        <div class="relative w-full h-auto bg-paper-2 overflow-hidden flex items-center justify-center p-4 sm:p-6 group" id="pdpStage">
+      <!-- Left: Vertical Thumbnails + Main PDP Stage -->
+      <div class="lg:sticky lg:top-[100px] flex flex-row gap-3 sm:gap-4 items-start w-full max-w-[100%] mx-auto lg:mx-0">
+        
+        <!-- Vertical Thumbnail Strip on the Left -->
+        <div class="flex flex-col gap-2.5 flex-none w-16 sm:w-20" id="pdpThumbs">
+          ${gal.map((g, i) => `
+            <button class="aspect-square bg-paper-2 border-l-2 ${i === 0 ? 'border-ink opacity-100' : 'border-transparent opacity-50'} p-1.5 transition-all hover:opacity-100 cursor-pointer" data-thumb="${g}">
+              <img class="w-full h-full object-contain" src="${g}">
+            </button>
+          `).join('')}
+        </div>
+
+        <!-- Main PDP Stage -->
+        <div class="relative flex-1 w-full h-auto bg-paper-2 overflow-hidden flex items-center justify-center p-4 sm:p-6 group" id="pdpStage">
           ${p.tag ? `<span class="absolute top-4 left-4 z-10 text-[0.58rem] tracking-[0.2em] uppercase font-medium text-mute bg-paper/90 px-2.5 py-1 shadow-sm">${p.tag}</span>` : ''}
           
           <!-- Prev/Next Navigation Arrows -->
@@ -1095,20 +1119,6 @@ function openProduct(id) {
           </button>
 
           <img id="pdpMain" src="${p.img}" alt="${p.name}" class="w-full h-auto object-contain block product-card-img">
-
-          <!-- Pagination Dots at Bottom of Photo Stage -->
-          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5" id="pdpDots">
-            ${gal.map((_, i) => `<button class="pdp-dot h-1.5 ${i === 0 ? 'w-5 bg-ink opacity-100' : 'w-1.5 bg-ink opacity-30'} rounded-full transition-all duration-300 cursor-pointer p-0 border-none" data-dot="${i}" aria-label="Photo ${i + 1}"></button>`).join('')}
-          </div>
-        </div>
-        
-        <!-- Subtle Thumbnail Strip -->
-        <div class="grid grid-cols-4 gap-3" id="pdpThumbs">
-          ${gal.map((g, i) => `
-            <button class="aspect-square bg-paper-2 border-b-2 ${i === 0 ? 'border-ink opacity-100' : 'border-transparent opacity-50'} p-2 transition-all hover:opacity-100 cursor-pointer" data-thumb="${g}">
-              <img class="w-full h-full object-contain" src="${g}">
-            </button>
-          `).join('')}
         </div>
       </div>
 
@@ -1231,15 +1241,6 @@ function openProduct(id) {
       x.classList.toggle('border-transparent', i !== currentGalIdx);
       x.classList.toggle('opacity-50', i !== currentGalIdx);
     });
-
-    // sync pagination dots
-    document.querySelectorAll('#pdpDots .pdp-dot').forEach((d, i) => {
-      if (i === currentGalIdx) {
-        d.className = 'pdp-dot h-1.5 w-5 rounded-full bg-ink opacity-100 transition-all duration-300 cursor-pointer p-0 border-none';
-      } else {
-        d.className = 'pdp-dot h-1.5 w-1.5 rounded-full bg-ink opacity-30 transition-all duration-300 cursor-pointer p-0 border-none';
-      }
-    });
   };
 
   // Prev / Next arrows click handlers
@@ -1247,11 +1248,6 @@ function openProduct(id) {
   const nextBtn = document.getElementById('pdpNext');
   if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); updateGal(currentGalIdx - 1); };
   if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); updateGal(currentGalIdx + 1); };
-
-  // Pagination dots click handlers
-  document.querySelectorAll('#pdpDots .pdp-dot').forEach(d => {
-    d.onclick = (e) => { e.stopPropagation(); updateGal(+d.dataset.dot); };
-  });
 
   // Thumbnail click handler
   document.querySelectorAll('#pdpThumbs button').forEach((b, i) => {
@@ -1290,10 +1286,15 @@ function count() {
   const cnt = cart.reduce((s, c) => findProduct(c.id) ? s + c.qty : s, 0);
   const el = document.getElementById('cartCount');
   if (el) {
-    el.textContent = cnt;
-    el.classList.remove('cart-bump');
-    void el.offsetWidth;
-    el.classList.add('cart-bump');
+    if (cnt > 0) {
+      el.style.display = 'grid';
+      el.textContent = cnt;
+      el.classList.remove('cart-bump');
+      void el.offsetWidth;
+      el.classList.add('cart-bump');
+    } else {
+      el.style.display = 'none';
+    }
   }
 }
 function renderCart() {
@@ -1483,14 +1484,14 @@ function frame() {
       }
     });
 
-    // --- Services scale-in on scroll ---
+    // --- Services fade-in on scroll ---
     const servicesGrid = document.querySelector('.services-grid-rs');
     if (servicesGrid) {
       const r = servicesGrid.getBoundingClientRect();
       const progress = Math.max(0, Math.min(1, 1 - (r.top - vh * 0.85) / (vh * 0.3)));
       servicesGrid.querySelectorAll(':scope > *').forEach((child, i) => {
         const stagger = Math.max(0, Math.min(1, (progress - i * 0.08)));
-        child.style.transform = `scale(${0.9 + 0.1 * stagger}) translateY(${(1 - stagger) * 20}px)`;
+        child.style.transform = `translateY(${(1 - stagger) * 20}px)`;
       });
     }
 

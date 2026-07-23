@@ -461,8 +461,8 @@ const views = {
             </div>
           </div>
           <form class="grid gap-3.5 ru d1" id="bookForm">
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Full name</label><input id="bkName" type="text" required placeholder="Daniel Lagonas" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile number</label><input id="bkPhone" type="tel" required placeholder="0916 932 1748" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Full name</label><input id="bkName" type="text" required placeholder="Juan Dela Cruz" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile number</label><input id="bkPhone" type="tel" required placeholder="0917 123 4567" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
             <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Email</label><input id="bkEmail" type="email" required placeholder="you@email.com" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
             <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Guests</label><select id="bkGuests" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"><option>Just me</option><option>Me + 1</option><option>Me + 2</option></select></div>
             <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Anything we should know?</label><textarea id="bkNotes" rows="3" placeholder="Scents you love, allergies…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></textarea></div>
@@ -505,7 +505,7 @@ const views = {
             </div>
             <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Delivery address</label><input id="coAddress" required placeholder="Street, city, province" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile</label><input id="coMobile" type="tel" required placeholder="0916…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile</label><input id="coMobile" type="tel" required placeholder="0917…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
               <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Postal</label><input id="coPostal" placeholder="1000" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
             </div>
             <label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold mt-2">Payment</label>
@@ -520,7 +520,7 @@ const views = {
               <div class="flex justify-between pt-3 pb-1.5 text-[1.4rem] font-serif text-ink tabular-nums"><span>Total</span><span id="grand">₱0</span></div>
             </div>
             <button type="submit" class="btn btn-fill justify-center w-full mt-2">Place order</button>
-            <p class="text-[0.8rem] text-mute pl-3.5 border-l-2 border-ink mt-1.5">Prefer to order by message? Call 0916 932 1748.</p>
+            <p class="text-[0.8rem] text-mute pl-3.5 border-l-2 border-ink mt-1.5">Prefer to order by message? Call 0917 123 4567.</p>
           </form>
         </aside>
       </div>

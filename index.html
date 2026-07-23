@@ -31,7 +31,7 @@
       <img src="/src/assets/logo/file.svg" alt="Danscents Logo" class="h-8 md:h-9 w-auto flex-none object-contain transition-transform duration-500 group-hover:scale-105" />
       <span class="flex flex-col leading-none">
         <span class="font-serif font-bold text-lg md:text-xl tracking-[0.18em] text-ink">DANSCENTS</span>
-        <span class="font-sans text-[0.46rem] md:text-[0.5rem] tracking-[0.38em] uppercase text-mute mt-[3px] font-semibold">Fragrance Maison</span>
+        <span class="font-sans text-[0.46rem] md:text-[0.5rem] tracking-[0.38em] uppercase text-mute mt-[3px] font-semibold">Under-Mall Perfume Retailer</span>
       </span>
     </a>
     
@@ -40,7 +40,7 @@
       <a data-nav="home" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Home</a>
       <a data-nav="shop" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Collections</a>
       <a data-scroll-brands class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Brands</a>
-      <a data-nav="book" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Book Atelier</a>
+      <a data-nav="book" class="nav-link cursor-pointer relative text-[0.78rem] font-medium tracking-[0.2em] uppercase text-ink-2 hover:text-ink transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-ink hover:after:w-full after:transition-all after:duration-300">Book Visit</a>
     </nav>
 
     <!-- Actions & Utilities -->
@@ -63,9 +63,13 @@
           </button>
         </div>
       </div>
-      <button data-nav="order" class="flex items-center gap-2.5 bg-ink text-paper px-4 py-2 rounded-full text-[0.72rem] font-semibold tracking-[0.16em] uppercase hover:bg-ink-2 transition-all duration-300 shadow-sm cursor-pointer hover:scale-[1.03] flex-none">
-        <span>Cart</span>
-        <span id="cartCount" class="w-5 h-5 rounded-full bg-paper text-ink text-[0.66rem] grid place-items-center font-bold tabular-nums">0</span>
+      <button data-nav="order" class="relative p-2.5 bg-ink text-paper rounded-full hover:bg-ink-2 transition-all duration-300 shadow-sm cursor-pointer hover:scale-105 flex items-center justify-center flex-none" aria-label="Shopping Cart" title="Shopping Cart">
+        <svg class="w-5 h-5 text-paper" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span id="cartCount" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-paper text-ink border border-ink text-[0.65rem] grid place-items-center font-bold tabular-nums shadow-sm">0</span>
       </button>
       <button id="burger" class="md:hidden flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1">
         <span class="w-6 h-[1.5px] bg-ink block"></span>
@@ -83,7 +87,7 @@
     <a data-nav="home" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Home</a>
     <a data-nav="shop" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Collections</a>
     <a data-scroll-brands class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Brands</a>
-    <a data-nav="book" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Book Atelier</a>
+    <a data-nav="book" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Book Visit</a>
     <a data-nav="event" class="font-serif text-[1.8rem] tracking-[0.08em] text-ink cursor-pointer transition-opacity hover:opacity-60">Events</a>
   </div>
 
@@ -105,10 +109,10 @@
           <img src="/src/assets/logo/file-white.svg" alt="Danscents Logo" class="h-10 md:h-11 w-auto flex-none object-contain" />
           <span class="flex flex-col leading-none">
             <span class="font-serif font-bold text-xl md:text-2xl tracking-[0.09em]">DANSCENTS</span>
-            <span class="font-sans text-[0.48rem] md:text-[0.55rem] tracking-[0.34em] uppercase text-[oklch(70%_0_0)] mt-[3px]">Designer & Niche Perfume</span>
+            <span class="font-sans text-[0.48rem] md:text-[0.55rem] tracking-[0.34em] uppercase text-[oklch(70%_0_0)] mt-[3px]">Under-Mall Perfume Retailer</span>
           </span>
         </a>
-        <p class="text-[oklch(72%_0_0)] text-sm max-w-[30ch] mt-4 font-light">A maison of designer and niche fragrance in Baguio. Chosen by nose, sold with honesty.</p>
+        <p class="text-[oklch(72%_0_0)] text-sm max-w-[30ch] mt-4 font-light">Premier retailer of authentic designer &amp; niche fragrances in the PH at under-mall pricing.</p>
         <form class="flex border border-[oklch(40%_0_0)] mt-4 max-w-[290px]" id="nlForm">
           <input type="email" placeholder="Email for new arrivals" id="nlInput" required class="flex-1 bg-transparent border-none px-3 py-3 text-paper font-sans text-sm outline-none placeholder-[oklch(60%_0_0)]">
           <button type="submit" class="bg-paper text-ink border-none px-4 text-[0.68rem] tracking-[0.12em] uppercase font-semibold transition-colors hover:bg-gray-200">Join</button>
@@ -122,7 +126,7 @@
         <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Discovery Sets</a>
       </div>
       <div class="flex flex-col">
-        <h5 class="text-[0.66rem] tracking-[0.2em] uppercase text-[oklch(66%_0_0)] mb-4">Maison</h5>
+        <h5 class="text-[0.66rem] tracking-[0.2em] uppercase text-[oklch(66%_0_0)] mb-4">Retail Store</h5>
         <a data-nav="event" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Events</a>
         <a data-nav="book" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Book a Visit</a>
         <a data-nav="shop" class="block text-[0.92rem] text-[oklch(84%_0_0)] mb-3 transition-colors hover:text-paper cursor-pointer">Samples</a>

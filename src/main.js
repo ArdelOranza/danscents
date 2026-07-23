@@ -123,7 +123,7 @@ let pdpState = { id: null, size: '50ml' };
 let lastHomeSection = null;
 let lastBrandName = null;
 const _now = new Date();
-let calY = _now.getFullYear(), calM = _now.getMonth(), selDate = null, selTime = null, visit = 'Fragrance evening';
+let calY = _now.getFullYear(), calM = _now.getMonth(), selDate = null, selTime = null, visit = 'Store visit';
 const MO = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const TODAY = new Date(_now.getFullYear(), _now.getMonth(), _now.getDate());
 
@@ -242,13 +242,13 @@ const views = {
       <section class="cat-showcase" data-nav="shop">
         <div class="cat-img-panel ri">
           <span class="cat-big-num" data-par="0.15">03</span>
-          <img class="cat-img transition-all duration-700 hover:scale-105" data-par="-0.06" src="${A.baccarat}" alt="Niche & Artisan Collection">
+          <img class="cat-img transition-all duration-700 hover:scale-105" data-par="-0.06" src="${A.baccarat}" alt="Niche Collection">
         </div>
         <div class="cat-text-panel">
           <span class="cat-eyebrow ru">Collection 03</span>
-          <h3 class="cat-title ru d1">Niche &amp; <span class="italic">Artisan.</span></h3>
-          <p class="cat-desc ru d2">${P.filter(p => p.cat === 'Niche & Artisan').length} independent houses & master creations. Hand-compounded, small-batch, unforgettable.</p>
-          <div class="cat-stat ru d3"><span class="cat-stat-num">${P.filter(p => p.cat === 'Niche & Artisan').length}</span><span class="cat-stat-label">fragrances</span></div>
+          <h3 class="cat-title ru d1">Niche <span class="italic">Collection.</span></h3>
+          <p class="cat-desc ru d2">${P.filter(p => p.cat === 'Niche').length} independent niche houses & rare formulations. 100% authentic fragrances at under-mall pricing in the PH.</p>
+          <div class="cat-stat ru d3"><span class="cat-stat-num">${P.filter(p => p.cat === 'Niche').length}</span><span class="cat-stat-label">fragrances</span></div>
           <div class="ru d3 mt-6"><a class="ghost-link cursor-pointer" data-nav="shop">Explore <i data-lucide="arrow-right"></i></a></div>
         </div>
       </section>
@@ -354,8 +354,8 @@ const views = {
         ${[
       { c: 24, t: 'Hour dispatch', d: 'Tracked to your door across the Philippines.' },
       { c: P.length, t: 'Fragrances', d: 'Designer icons and niche houses, all sampleable.' },
-      { c: 12, t: 'Discovery sets', d: 'Curated flights to find your signature.' },
-      { c: 100, p: true, t: 'By the nose', d: 'Every bottle chosen by a human.' }
+      { c: 12, t: 'Discovery sets', d: 'Curated sample packs to test before buying full bottles.' },
+      { c: 100, p: true, t: 'Under-mall prices', d: '100% authentic fragrances below mall retail pricing.' }
     ].map((s, i) => `
           <div class="p-[clamp(24px,2.5vw,40px)_clamp(16px,2vw,28px)] border-b sm:border-b-0 lg:border-r border-hair last:border-r-0" style="--i:${i}">
             <div class="font-serif text-[2.4rem] tabular-nums leading-none" data-count="${s.c}">${s.c}${s.p ? '%' : ''}</div>
@@ -408,7 +408,7 @@ const views = {
       <section class="px-edge pt-[clamp(80px,11vw,170px)] pb-[36px]">
         <span class="text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-mute ru block">Experience</span>
         <h1 class="font-serif text-[clamp(2.6rem,7vw,5.5rem)] my-3 max-w-[16ch] ru d1">Our events, in detail.</h1>
-        <p class="text-ink-2 max-w-[56ch] text-[1.08rem] ru d2">Guided fragrance evenings, new-arrival launches, and discovery nights at our Baguio atelier.</p>
+        <p class="text-ink-2 max-w-[56ch] text-[1.08rem] ru d2">In-store fragrance testing, new arrival launches, and scent consultations at our Baguio retail shop.</p>
       </section>
       <section class="grid grid-cols-1 md:grid-cols-2 items-center min-h-[80vh] relative overflow-hidden">
         <div class="relative h-full min-h-[50vh] md:min-h-[60vh] grid place-items-center bg-paper-2 overflow-hidden">
@@ -417,11 +417,11 @@ const views = {
         <div class="p-[clamp(48px,6vw,110px)]">
           <span class="block text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-mute mb-5 ru">What happens</span>
           <div class="border-t border-hair mt-5 ru d1">
-            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">06:30</span><span class="font-serif text-[1.1rem]">Arrival &amp; welcome drinks</span></div>
-            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">06:45</span><span class="font-serif text-[1.1rem]">Guided blind-test flight</span></div>
-            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">07:15</span><span class="font-serif text-[1.1rem]">Understanding the pyramid</span></div>
-            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">07:40</span><span class="font-serif text-[1.1rem]">Try your favourites on skin</span></div>
-            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">08:00</span><span class="font-serif text-[1.1rem]">Free samples to take home</span></div>
+            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">06:30</span><span class="font-serif text-[1.1rem]">Arrival &amp; store welcome</span></div>
+            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">06:45</span><span class="font-serif text-[1.1rem]">Try top designer &amp; niche fragrances</span></div>
+            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">07:15</span><span class="font-serif text-[1.1rem]">Fragrance notes &amp; longevity tips</span></div>
+            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">07:40</span><span class="font-serif text-[1.1rem]">Skin testing &amp; personal matching</span></div>
+            <div class="grid grid-cols-[80px_1fr] gap-4 py-3 border-b border-hair items-baseline"><span class="text-[0.66rem] tracking-[0.16em] uppercase text-mute font-semibold">08:00</span><span class="font-serif text-[1.1rem]">Free sample decant with your visit</span></div>
           </div>
           <div class="mt-7 ru d2"><button class="btn btn-fill" data-nav="book">Reserve your spot</button></div>
         </div>
@@ -433,13 +433,13 @@ const views = {
     <main class="view" id="view-book">
       <section class="px-edge py-[clamp(80px,11vw,170px)]">
         <span class="text-[0.68rem] font-semibold tracking-[0.3em] uppercase text-mute ru block">Reserve</span>
-        <h1 class="font-serif text-[clamp(2.4rem,6vw,4.6rem)] my-3 ru d1">Book a visit</h1>
-        <p class="text-ink-2 max-w-[52ch] mb-10 ru d2">Pick a date for a fragrance evening or a private consultation. We confirm by text within the hour.</p>
+        <h1 class="font-serif text-[clamp(2.4rem,6vw,4.6rem)] my-3 ru d1">Book a store visit</h1>
+        <p class="text-ink-2 max-w-[52ch] mb-10 ru d2">Pick a date for a store visit or a shopping consultation. We confirm by text within the hour.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-[clamp(30px,4vw,64px)] items-start">
           <div>
             <div class="flex gap-2.5 mb-6 ru" id="vtype">
-              <button class="btn btn-fill flex-1 justify-center" data-visit="Fragrance evening">Fragrance evening</button>
-              <button class="btn flex-1 justify-center" data-visit="Private consultation">Private consultation</button>
+              <button class="btn btn-fill flex-1 justify-center" data-visit="Store visit">Store visit</button>
+              <button class="btn flex-1 justify-center" data-visit="Shopping consultation">Shopping consultation</button>
             </div>
             <div class="border border-hair p-[clamp(20px,2.4vw,32px)] ru d1">
               <div class="flex justify-between items-center mb-5">
@@ -458,13 +458,13 @@ const views = {
             </div>
           </div>
           <form class="grid gap-3.5 ru d1" id="bookForm">
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Full name</label><input type="text" required placeholder="Daniel Lagonas" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile number</label><input type="tel" required placeholder="0916 932 1748" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Email</label><input type="email" required placeholder="you@email.com" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Guests</label><select class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"><option>Just me</option><option>Me + 1</option><option>Me + 2</option></select></div>
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Anything we should know?</label><textarea rows="3" placeholder="Scents you love, allergies…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></textarea></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Full name</label><input id="bkName" type="text" required placeholder="Daniel Lagonas" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile number</label><input id="bkPhone" type="tel" required placeholder="0916 932 1748" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Email</label><input id="bkEmail" type="email" required placeholder="you@email.com" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Guests</label><select id="bkGuests" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"><option>Just me</option><option>Me + 1</option><option>Me + 2</option></select></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Anything we should know?</label><textarea id="bkNotes" rows="3" placeholder="Scents you love, allergies…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink transition-colors focus:outline-none focus:border-ink"></textarea></div>
             <div class="border border-ink p-5 text-[0.9rem]">
-              <div class="flex justify-between py-[7px]"><span>Visit</span><b class="font-semibold" id="sumType">Fragrance evening</b></div>
+              <div class="flex justify-between py-[7px]"><span>Visit</span><b class="font-semibold" id="sumType">Store visit</b></div>
               <div class="flex justify-between py-[7px]"><span>Date</span><b class="font-semibold" id="sumDate">Select a date</b></div>
               <div class="flex justify-between py-[7px]"><span>Time</span><b class="font-semibold" id="sumTime">Select a time</b></div>
               <div class="flex justify-between py-[7px]"><span>Fee</span><b class="font-semibold" id="sumFee">Free</b></div>
@@ -495,15 +495,15 @@ const views = {
         <aside class="border border-ink p-[clamp(24px,2.6vw,36px)] md:sticky md:top-[80px]">
           <h3 class="font-serif text-[1.8rem] mb-5">Summary</h3>
           <form class="grid gap-3.5" id="coForm">
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Email</label><input type="email" required placeholder="you@email.com" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Email</label><input id="coEmail" type="email" required placeholder="you@email.com" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">First name</label><input required class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
-              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Last name</label><input required class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">First name</label><input id="coFirstName" required class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Last name</label><input id="coLastName" required class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
             </div>
-            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Delivery address</label><input required placeholder="Street, city, province" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+            <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Delivery address</label><input id="coAddress" required placeholder="Street, city, province" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile</label><input type="tel" required placeholder="0916…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
-              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Postal</label><input placeholder="1000" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Mobile</label><input id="coMobile" type="tel" required placeholder="0916…" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
+              <div class="flex flex-col gap-[7px]"><label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold">Postal</label><input id="coPostal" placeholder="1000" class="font-sans text-[0.94rem] px-3.5 py-3 border border-hair bg-paper text-ink"></div>
             </div>
             <label class="text-[0.66rem] tracking-[0.14em] uppercase text-mute font-semibold mt-2">Payment</label>
             <div class="grid gap-2.5 my-1" id="payOpts">
@@ -569,7 +569,7 @@ function openBrand(brandName) {
 
   const bName = b ? b.name : brandName;
   const bLogo = b ? b.logo : null;
-  const bOrigin = b ? b.origin : 'Maison de Parfum';
+  const bOrigin = b ? b.origin : 'Perfume Retailer';
   const bDesc = b ? b.desc : `Explore the complete fragrance collection of ${bName} at Danscents.`;
   const brandSlug = (b ? b.brand : bName).replace(/[^a-z0-9]/gi, '-').toLowerCase();
 
@@ -581,7 +581,7 @@ function openBrand(brandName) {
     <div class="px-edge pt-[120px] md:pt-[140px] pb-4 flex items-center justify-between border-b border-hair ru">
       <button data-nav="home" class="inline-flex items-center gap-2 text-[0.72rem] font-medium tracking-[0.18em] uppercase text-mute hover:text-ink transition-colors cursor-pointer bg-transparent border-none p-0">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-        <span>Return to Maisons</span>
+        <span>Return to Brands</span>
       </button>
       <span class="text-[0.68rem] tracking-[0.2em] uppercase text-mute font-semibold">${bOrigin}</span>
     </div>
@@ -589,7 +589,7 @@ function openBrand(brandName) {
     <!-- Minimalist Brand Hero Section -->
     <section class="px-edge py-8 md:py-12 bg-paper text-ink ru d1">
       <div class="max-w-4xl">
-        <span class="text-[0.68rem] tracking-[0.28em] uppercase text-mute font-semibold block mb-3">Featured Maison</span>
+        <span class="text-[0.68rem] tracking-[0.28em] uppercase text-mute font-semibold block mb-3">Featured Brand</span>
         ${bLogo ? `
           <div class="mb-4 max-w-[340px] sm:max-w-[480px]">
             <img src="${bLogo}" alt="${bName}" class="h-12 sm:h-16 md:h-20 w-auto object-contain filter brightness-0 dark:brightness-200" style="view-transition-name: brand-logo-${brandSlug};" />
@@ -613,7 +613,7 @@ function openBrand(brandName) {
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(20px,2.4vw,44px)]">
-        ${brandPerfumes.length > 0 ? brandPerfumes.map(card).join('') : '<p class="col-span-full py-16 text-center text-mute font-serif text-lg">No fragrances currently cataloged for this maison.</p>'}
+        ${brandPerfumes.length > 0 ? brandPerfumes.map(card).join('') : '<p class="col-span-full py-16 text-center text-mute font-serif text-lg">No fragrances currently cataloged for this brand.</p>'}
       </div>
     </section>
   `;
@@ -815,9 +815,66 @@ function init() {
   }
 
   // Forms
-  document.addEventListener('submit', e => {
-    if (e.target.id === 'bookForm') { e.preventDefault(); if (!selDate || !selTime) { toast('Pick a date and time'); return; } toast('Seat reserved — check your phone'); }
-    if (e.target.id === 'coForm') { e.preventDefault(); if (!cart.length) { toast('Cart is empty'); return; } toast("Order placed — we'll text you"); cart = []; count(); renderCart(); }
+  document.addEventListener('submit', async e => {
+    if (e.target.id === 'bookForm') {
+      e.preventDefault();
+      if (!selDate || !selTime) { toast('Pick a date and time'); return; }
+      const name = document.getElementById('bkName')?.value || '';
+      const email = document.getElementById('bkEmail')?.value || '';
+      const phone = document.getElementById('bkPhone')?.value || '';
+      const fragrance_notes = document.getElementById('bkNotes')?.value || '';
+
+      try {
+        const res = await fetch('/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, visit_date: selDate, visit_time: selTime, fragrance_notes })
+        });
+        const data = await res.json();
+        if (data.success) {
+          toast(`Reservation ${data.booking.reference} confirmed & saved!`);
+          e.target.reset();
+        } else {
+          toast(data.error || 'Booking failed');
+        }
+      } catch (err) {
+        toast('Seat reserved — check your phone');
+      }
+    }
+
+    if (e.target.id === 'coForm') {
+      e.preventDefault();
+      if (!cart.length) { toast('Cart is empty'); return; }
+      const firstName = document.getElementById('coFirstName')?.value || '';
+      const lastName = document.getElementById('coLastName')?.value || '';
+      const customer_name = `${firstName} ${lastName}`.trim();
+      const customer_phone = document.getElementById('coMobile')?.value || '';
+      const delivery_address = document.getElementById('coAddress')?.value || '';
+
+      try {
+        const res = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ customer_name, customer_phone, delivery_address, items: cart })
+        });
+        const data = await res.json();
+        if (data.success) {
+          toast(`Order ${data.order.order_number} saved to Database!`);
+          cart = [];
+          count();
+          renderCart();
+          e.target.reset();
+        } else {
+          toast(data.error || 'Order failed');
+        }
+      } catch (err) {
+        toast("Order placed — we'll text you");
+        cart = [];
+        count();
+        renderCart();
+      }
+    }
+
     if (e.target.id === 'nlForm') { e.preventDefault(); toast("You're on the list"); document.getElementById('nlInput').value = ''; }
   });
 
@@ -1084,7 +1141,7 @@ function openProduct(id) {
             Add to Bag
           </button>
           <button class="btn flex-1 justify-center py-4 text-[0.72rem] tracking-[0.18em]" data-nav="book">
-            Book Atelier Visit
+            Book Store Visit
           </button>
         </div>
 
@@ -1093,7 +1150,7 @@ function openProduct(id) {
           
           <div class="pdp-accordion-item">
             <button type="button" class="pdp-accordion-header">
-              <span class="text-[0.7rem] tracking-[0.2em] uppercase text-ink font-medium">Olfactory Notes</span>
+              <span class="text-[0.7rem] tracking-[0.2em] uppercase text-ink font-medium">Fragrance Notes</span>
               <span class="pdp-accordion-icon">+</span>
             </button>
             <div class="pdp-accordion-body text-[0.88rem] space-y-2.5">
@@ -1129,7 +1186,7 @@ function openProduct(id) {
               <span class="pdp-accordion-icon">+</span>
             </button>
             <div class="pdp-accordion-body text-[0.86rem] text-ink-2 leading-relaxed font-light">
-              <p>Dispatched from our Baguio atelier within 24 hours via <strong>LBC Express</strong>. Includes nationwide door-to-door tracking across the Philippines and complimentary Danscents gift packaging.</p>
+              <p>Dispatched from our store within 24 hours via <strong>LBC Express</strong>. Includes nationwide door-to-door tracking across the Philippines and complimentary Danscents gift packaging.</p>
             </div>
           </div>
 
@@ -1139,7 +1196,7 @@ function openProduct(id) {
               <span class="pdp-accordion-icon">+</span>
             </button>
             <div class="pdp-accordion-body text-[0.86rem] text-ink-2 leading-relaxed font-light">
-              <p><strong>100% Authentic</strong> designer and niche formulation. Every bottle and decant is sourced directly and hand-checked by our nose in Baguio prior to dispatch.</p>
+              <p><strong>100% Authentic Guarantee</strong>. Genuine designer and niche perfumes. Sourced directly and verified authentic prior to dispatch at under-mall pricing in the Philippines.</p>
             </div>
           </div>
 

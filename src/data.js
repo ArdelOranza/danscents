@@ -220,7 +220,7 @@ const rawCatalog = [
   { house: 'YSL', name: 'Myslf EDP (W/O Cellophane)', cat: 'For Him', price: 6800, img: A.frost, tag: 'Steal Deal', notes: 'Calabrian Bergamot · Orange Blossom · Ambrofix' },
   { house: 'YSL', name: 'Y EDP', cat: 'For Him', price: 7600, img: A.green, tag: 'Compliment Magnet', notes: 'Apple · Sage · Tonka Bean' },
   { house: 'YSL', name: 'Y L\'Elixir', cat: 'For Him', price: 9200, img: A.amber, notes: 'Lavender · Geranium · Oud' },
-  { house: 'YSL', name: 'Le Vestiaire Des Parfums Miniature', cat: 'For Him', price: 4500, img: A.frost, notes: 'Curated Flight of YSL Atelier Miniatures' },
+  { house: 'YSL', name: 'Le Vestiaire Des Parfums Miniature', cat: 'For Him', price: 4500, img: A.frost, notes: 'Curated Set of YSL Miniatures' },
 
 
   // ==================== WOMEN'S COLLECTION ====================
@@ -298,130 +298,130 @@ const rawCatalog = [
 
 
   // ==================== NICHE COLLECTION ====================
-  { house: 'Acca Kappa', name: 'White Moss', cat: 'Niche & Artisan', price: 4800, img: A.frost, notes: 'Lemon · Bergamot · Lavender · Sweet Woods' },
+  { house: 'Acca Kappa', name: 'White Moss', cat: 'Niche', price: 4800, img: A.frost, notes: 'Lemon · Bergamot · Lavender · Sweet Woods' },
   
-  { house: 'Atelier Des Ors', name: 'Villa Primerose', cat: 'Niche & Artisan', price: 14500, img: A.amber, notes: 'Rose · Cardamom · Leatherwood' },
+  { house: 'Atelier Des Ors', name: 'Villa Primerose', cat: 'Niche', price: 14500, img: A.amber, notes: 'Rose · Cardamom · Leatherwood' },
   
-  { house: 'Byredo', name: 'Black Saffron', cat: 'Niche & Artisan', price: 13800, img: A.amber, notes: 'Pomelo · Saffron · Black Violet · Leather' },
-  { house: 'Byredo', name: 'Dessert Dawn', cat: 'Niche & Artisan', price: 14200, img: A.amber, notes: 'Cardamom · Rose Petals · Cedarwood' },
-  { house: 'Byredo', name: 'De Los Santos', cat: 'Niche & Artisan', price: 13800, img: A.green, notes: 'Clary Sage · Mirabelle · Cistus' },
-  { house: 'Byredo', name: 'Slow Dance', cat: 'Niche & Artisan', price: 13800, img: A.amber, notes: 'Opoponax · Geranium · Labdanum · Vanilla' },
+  { house: 'Byredo', name: 'Black Saffron', cat: 'Niche', price: 13800, img: A.amber, notes: 'Pomelo · Saffron · Black Violet · Leather' },
+  { house: 'Byredo', name: 'Dessert Dawn', cat: 'Niche', price: 14200, img: A.amber, notes: 'Cardamom · Rose Petals · Cedarwood' },
+  { house: 'Byredo', name: 'De Los Santos', cat: 'Niche', price: 13800, img: A.green, notes: 'Clary Sage · Mirabelle · Cistus' },
+  { house: 'Byredo', name: 'Slow Dance', cat: 'Niche', price: 13800, img: A.amber, notes: 'Opoponax · Geranium · Labdanum · Vanilla' },
   
-  { house: 'Clive Christian', name: 'Town & Country', cat: 'Niche & Artisan', price: 24000, img: A.green, tag: 'Ultra Niche', notes: 'Clary Sage · Ambergris · Sandalwood' },
+  { house: 'Clive Christian', name: 'Town & Country', cat: 'Niche', price: 24000, img: A.green, tag: 'Ultra Niche', notes: 'Clary Sage · Ambergris · Sandalwood' },
   
-  { house: 'Dries Van Noten', name: 'Bois Defendu', cat: 'Niche & Artisan', price: 16500, img: A.green, notes: 'Cardamom · Cedarwood · Vanilla' },
-  { house: 'Dries Van Noten', name: 'Crazy Bazil', cat: 'Niche & Artisan', price: 16500, img: A.green, notes: 'Fresh Basil · Vetiver · Fig Leaf' },
+  { house: 'Dries Van Noten', name: 'Bois Defendu', cat: 'Niche', price: 16500, img: A.green, notes: 'Cardamom · Cedarwood · Vanilla' },
+  { house: 'Dries Van Noten', name: 'Crazy Bazil', cat: 'Niche', price: 16500, img: A.green, notes: 'Fresh Basil · Vetiver · Fig Leaf' },
   
-  { house: 'Ella K', name: 'Amber K', cat: 'Niche & Artisan', price: 14800, img: A.amber, notes: 'Golden Amber · Resins · Spices' },
+  { house: 'Ella K', name: 'Amber K', cat: 'Niche', price: 14800, img: A.amber, notes: 'Golden Amber · Resins · Spices' },
   
-  { house: 'État Libre d\'Orange', name: 'Story Of My Life', cat: 'Niche & Artisan', price: 9500, img: A.amber, notes: 'Benzoin · Leather · Cinnamon' },
+  { house: 'État Libre d\'Orange', name: 'Story Of My Life', cat: 'Niche', price: 9500, img: A.amber, notes: 'Benzoin · Leather · Cinnamon' },
   
-  { house: 'Fragrance Du Bois', name: 'Minuit Et Demi', cat: 'Niche & Artisan', price: 18500, img: A.amber, notes: 'Cardamom · Caramel · Bourbon Vanilla' },
-  { house: 'Fragrance Du Bois', name: 'New York Intense', cat: 'Niche & Artisan', price: 19500, img: A.amber, notes: 'Cinnamon · Rose · Oud · Guaiac Wood' },
-  { house: 'Fragrance Du Bois', name: 'Oud Jaune Intense Parfum', cat: 'Niche & Artisan', price: 22000, img: A.amber, notes: 'Ylang-Ylang · Jasmine · Pure Oud' },
-  { house: 'Fragrance Du Bois', name: 'Oud Orange Intense', cat: 'Niche & Artisan', price: 21000, img: A.amber, notes: 'Coconut · Bourbon Vanilla · Pure Oud' },
-  { house: 'Fragrance Du Bois', name: 'Sirène', cat: 'Niche & Artisan', price: 18500, img: A.pink, notes: 'Pink Pepper · Rose · Lactonic Notes' },
-  { house: 'Fragrance Du Bois', name: 'Solstis', cat: 'Niche & Artisan', price: 17500, img: A.frost, notes: 'Apple · Bergamot · Pink Pepper · Vetiver' },
-  { house: 'Fragrance Du Bois', name: 'Tropiques', cat: 'Niche & Artisan', price: 18500, img: A.amber, notes: 'Mango · Passionfruit · Warm Amber' },
+  { house: 'Fragrance Du Bois', name: 'Minuit Et Demi', cat: 'Niche', price: 18500, img: A.amber, notes: 'Cardamom · Caramel · Bourbon Vanilla' },
+  { house: 'Fragrance Du Bois', name: 'New York Intense', cat: 'Niche', price: 19500, img: A.amber, notes: 'Cinnamon · Rose · Oud · Guaiac Wood' },
+  { house: 'Fragrance Du Bois', name: 'Oud Jaune Intense Parfum', cat: 'Niche', price: 22000, img: A.amber, notes: 'Ylang-Ylang · Jasmine · Pure Oud' },
+  { house: 'Fragrance Du Bois', name: 'Oud Orange Intense', cat: 'Niche', price: 21000, img: A.amber, notes: 'Coconut · Bourbon Vanilla · Pure Oud' },
+  { house: 'Fragrance Du Bois', name: 'Sirène', cat: 'Niche', price: 18500, img: A.pink, notes: 'Pink Pepper · Rose · Lactonic Notes' },
+  { house: 'Fragrance Du Bois', name: 'Solstis', cat: 'Niche', price: 17500, img: A.frost, notes: 'Apple · Bergamot · Pink Pepper · Vetiver' },
+  { house: 'Fragrance Du Bois', name: 'Tropiques', cat: 'Niche', price: 18500, img: A.amber, notes: 'Mango · Passionfruit · Warm Amber' },
   
-  { house: 'Maison Crivelli', name: 'Hibiscus Mahajad', cat: 'Niche & Artisan', price: 16800, img: A.pink, tag: 'Extrait', notes: 'Hibiscus · Rose · Spearmint · Leather · Vanilla' },
+  { house: 'Maison Crivelli', name: 'Hibiscus Mahajad', cat: 'Niche', price: 16800, img: A.pink, tag: 'Extrait', notes: 'Hibiscus · Rose · Spearmint · Leather · Vanilla' },
   
-  { house: 'Maison Francis Kurkdjian', name: 'Grand Soir', cat: 'Niche & Artisan', price: 14500, img: A.amber, tag: 'Evening', notes: 'Spanish Labdanum · Siam Benzoin · Tonka Bean · Amber' },
+  { house: 'Maison Francis Kurkdjian', name: 'Grand Soir', cat: 'Niche', price: 14500, img: A.amber, tag: 'Evening', notes: 'Spanish Labdanum · Siam Benzoin · Tonka Bean · Amber' },
   
-  { house: 'Narcotica', name: 'Dulce Diablo', cat: 'Niche & Artisan', price: 17200, img: A.amber, notes: 'Cognac · Apricot · Chocolate · Rum · Sugar' },
+  { house: 'Narcotica', name: 'Dulce Diablo', cat: 'Niche', price: 17200, img: A.amber, notes: 'Cognac · Apricot · Chocolate · Rum · Sugar' },
   
-  { house: 'Nasomatto', name: 'Fantomas', cat: 'Niche & Artisan', price: 9200, img: A.frost, notes: 'Melon · Rubber · Smoke · Caramel' },
-  { house: 'Nasomatto', name: 'Sadonaso', cat: 'Niche & Artisan', price: 9200, img: A.amber, notes: 'Coffee · Musk · Tobacco · Animalic Accord' },
-  { house: 'Nasomatto', name: 'Silver Musk', cat: 'Niche & Artisan', price: 9200, img: A.frost, notes: 'Clean Musk · Metallic Notes · Solar Accords' },
-  { house: 'Nasomatto', name: 'Nudiflorium', cat: 'Niche & Artisan', price: 9200, img: A.pink, notes: 'Jasmine · Leather · Touch Accord' },
+  { house: 'Nasomatto', name: 'Fantomas', cat: 'Niche', price: 9200, img: A.frost, notes: 'Melon · Rubber · Smoke · Caramel' },
+  { house: 'Nasomatto', name: 'Sadonaso', cat: 'Niche', price: 9200, img: A.amber, notes: 'Coffee · Musk · Tobacco · Animalic Accord' },
+  { house: 'Nasomatto', name: 'Silver Musk', cat: 'Niche', price: 9200, img: A.frost, notes: 'Clean Musk · Metallic Notes · Solar Accords' },
+  { house: 'Nasomatto', name: 'Nudiflorium', cat: 'Niche', price: 9200, img: A.pink, notes: 'Jasmine · Leather · Touch Accord' },
   
-  { house: 'Nishane', name: 'Ege Atiaio', cat: 'Niche & Artisan', price: 11500, img: A.frost, notes: 'Yuzu · Anise · Basil · Mint' },
-  { house: 'Nishane', name: 'Fan Your Flames', cat: 'Niche & Artisan', price: 12500, img: A.amber, notes: 'Coconut · Rum · Tobacco · Tonka Bean' },
-  { house: 'Nishane', name: 'Fan Your Flames X', cat: 'Niche & Artisan', price: 14500, img: A.amber, notes: 'Coconut · Rum · Cedar · Patchouli' },
-  { house: 'Nishane', name: 'Hacivat Oud', cat: 'Niche & Artisan', price: 21000, img: A.green, notes: 'Pineapple · Bergamot · Pure Oud' },
-  { house: 'Nishane', name: 'Hundred Silent Ways', cat: 'Niche & Artisan', price: 11800, img: A.pink, notes: 'Tuberose · Peach · Gardenia · Vanilla' },
-  { house: 'Nishane', name: 'Hundred Silent Ways X', cat: 'Niche & Artisan', price: 13800, img: A.pink, notes: 'Mandarin · Peach · Leather · Vanilla' },
-  { house: 'Nishane', name: 'Nefs', cat: 'Niche & Artisan', price: 26500, img: A.amber, tag: 'Crown Jewel', notes: 'Honey · Saffron · Rose · Oud · Vanilla' },
-  { house: 'Nishane', name: 'Wulong Cha', cat: 'Niche & Artisan', price: 11500, img: A.green, notes: 'Bergamot · Oolong Tea · Nutmeg · Fig' },
+  { house: 'Nishane', name: 'Ege Atiaio', cat: 'Niche', price: 11500, img: A.frost, notes: 'Yuzu · Anise · Basil · Mint' },
+  { house: 'Nishane', name: 'Fan Your Flames', cat: 'Niche', price: 12500, img: A.amber, notes: 'Coconut · Rum · Tobacco · Tonka Bean' },
+  { house: 'Nishane', name: 'Fan Your Flames X', cat: 'Niche', price: 14500, img: A.amber, notes: 'Coconut · Rum · Cedar · Patchouli' },
+  { house: 'Nishane', name: 'Hacivat Oud', cat: 'Niche', price: 21000, img: A.green, notes: 'Pineapple · Bergamot · Pure Oud' },
+  { house: 'Nishane', name: 'Hundred Silent Ways', cat: 'Niche', price: 11800, img: A.pink, notes: 'Tuberose · Peach · Gardenia · Vanilla' },
+  { house: 'Nishane', name: 'Hundred Silent Ways X', cat: 'Niche', price: 13800, img: A.pink, notes: 'Mandarin · Peach · Leather · Vanilla' },
+  { house: 'Nishane', name: 'Nefs', cat: 'Niche', price: 26500, img: A.amber, tag: 'Crown Jewel', notes: 'Honey · Saffron · Rose · Oud · Vanilla' },
+  { house: 'Nishane', name: 'Wulong Cha', cat: 'Niche', price: 11500, img: A.green, notes: 'Bergamot · Oolong Tea · Nutmeg · Fig' },
   
-  { house: 'Obvious', name: 'Un Musc', cat: 'Niche & Artisan', price: 6800, img: A.frost, notes: 'Bergamot · Vetiver · White Musks' },
-  { house: 'Obvious', name: 'Une Figue', cat: 'Niche & Artisan', price: 6800, img: A.green, notes: 'Fig Leaf · Coconut Water · Cedarwood' },
+  { house: 'Obvious', name: 'Un Musc', cat: 'Niche', price: 6800, img: A.frost, notes: 'Bergamot · Vetiver · White Musks' },
+  { house: 'Obvious', name: 'Une Figue', cat: 'Niche', price: 6800, img: A.green, notes: 'Fig Leaf · Coconut Water · Cedarwood' },
   
-  { house: 'Oman Luxury', name: 'Royal Incense', cat: 'Niche & Artisan', price: 13500, img: A.amber, notes: 'Omani Frankincense · Lily · Amber' },
-  { house: 'Oman Luxury', name: 'Wanderlust', cat: 'Niche & Artisan', price: 13500, img: A.green, notes: 'Bergamot · Fig · Cedarwood' },
+  { house: 'Oman Luxury', name: 'Royal Incense', cat: 'Niche', price: 13500, img: A.amber, notes: 'Omani Frankincense · Lily · Amber' },
+  { house: 'Oman Luxury', name: 'Wanderlust', cat: 'Niche', price: 13500, img: A.green, notes: 'Bergamot · Fig · Cedarwood' },
   
-  { house: 'Ormonde Jayne', name: 'Levant', cat: 'Niche & Artisan', price: 12800, img: A.pink, notes: 'Mandarin · Rose · Orange Blossom · Musk' },
-  { house: 'Ormonde Jayne', name: 'Sakura', cat: 'Niche & Artisan', price: 13500, img: A.pink, notes: 'Cherry Blossom · Lime · Violet Leaf · Cedar' },
+  { house: 'Ormonde Jayne', name: 'Levant', cat: 'Niche', price: 12800, img: A.pink, notes: 'Mandarin · Rose · Orange Blossom · Musk' },
+  { house: 'Ormonde Jayne', name: 'Sakura', cat: 'Niche', price: 13500, img: A.pink, notes: 'Cherry Blossom · Lime · Violet Leaf · Cedar' },
   
-  { house: 'Orto Parisi', name: 'Bergamask', cat: 'Niche & Artisan', price: 9800, img: A.green, notes: 'Bergamot · Musk' },
-  { house: 'Orto Parisi', name: 'Megamare', cat: 'Niche & Artisan', price: 9800, img: A.frost, tag: 'Eternal Beast', notes: 'Sea Notes · Salt · Ambergris · Seaweed' },
-  { house: 'Orto Parisi', name: 'Terroni', cat: 'Niche & Artisan', price: 9800, img: A.amber, notes: 'Volcanic Ash · Earth · Spices · Smoke' },
-  { house: 'Orto Parisi', name: 'Risvelium', cat: 'Niche & Artisan', price: 9800, img: A.amber, notes: 'Deep Resinous Woods · Musk' },
-  { house: 'Orto Parisi', name: 'Seminalis', cat: 'Niche & Artisan', price: 9800, img: A.frost, notes: 'Lactonic Notes · Bourbon Vanilla · Cedar' },
-  { house: 'Orto Parisi', name: 'Viride', cat: 'Niche & Artisan', price: 9800, img: A.green, notes: 'Herbal Accord · Green Woods · Vetiver' },
+  { house: 'Orto Parisi', name: 'Bergamask', cat: 'Niche', price: 9800, img: A.green, notes: 'Bergamot · Musk' },
+  { house: 'Orto Parisi', name: 'Megamare', cat: 'Niche', price: 9800, img: A.frost, tag: 'Eternal Beast', notes: 'Sea Notes · Salt · Ambergris · Seaweed' },
+  { house: 'Orto Parisi', name: 'Terroni', cat: 'Niche', price: 9800, img: A.amber, notes: 'Volcanic Ash · Earth · Spices · Smoke' },
+  { house: 'Orto Parisi', name: 'Risvelium', cat: 'Niche', price: 9800, img: A.amber, notes: 'Deep Resinous Woods · Musk' },
+  { house: 'Orto Parisi', name: 'Seminalis', cat: 'Niche', price: 9800, img: A.frost, notes: 'Lactonic Notes · Bourbon Vanilla · Cedar' },
+  { house: 'Orto Parisi', name: 'Viride', cat: 'Niche', price: 9800, img: A.green, notes: 'Herbal Accord · Green Woods · Vetiver' },
   
-  { house: 'Penhaligon\'s', name: 'The Duke EDP', cat: 'Niche & Artisan', price: 15500, img: A.amber, notes: 'Rose · Cumin · Pepper · Gin Accord' },
-  { house: 'Penhaligon\'s', name: 'Mister Thompson EDP', cat: 'Niche & Artisan', price: 15500, img: A.amber, notes: 'Pink Pepper · Orris · Sesame · Vanilla' },
+  { house: 'Penhaligon\'s', name: 'The Duke EDP', cat: 'Niche', price: 15500, img: A.amber, notes: 'Rose · Cumin · Pepper · Gin Accord' },
+  { house: 'Penhaligon\'s', name: 'Mister Thompson EDP', cat: 'Niche', price: 15500, img: A.amber, notes: 'Pink Pepper · Orris · Sesame · Vanilla' },
   
-  { house: 'Profumum Roma', name: 'Sorriso', cat: 'Niche & Artisan', price: 16200, img: A.amber, notes: 'Dark Chocolate · Bitter Orange · Vanilla · Woods' },
+  { house: 'Profumum Roma', name: 'Sorriso', cat: 'Niche', price: 16200, img: A.amber, notes: 'Dark Chocolate · Bitter Orange · Vanilla · Woods' },
   
-  { house: 'Room 1015', name: 'Ten Fifteen', cat: 'Niche & Artisan', price: 8200, img: A.amber, notes: 'Saffron · Mandarin · Iris · Papyrus · Violet' },
-  { house: 'Room 1015', name: 'Wavechild', cat: 'Niche & Artisan', price: 8200, img: A.frost, notes: 'Watermelon · Coconut Water · Ambergris' },
+  { house: 'Room 1015', name: 'Ten Fifteen', cat: 'Niche', price: 8200, img: A.amber, notes: 'Saffron · Mandarin · Iris · Papyrus · Violet' },
+  { house: 'Room 1015', name: 'Wavechild', cat: 'Niche', price: 8200, img: A.frost, notes: 'Watermelon · Coconut Water · Ambergris' },
   
-  { house: 'Roja Parfums', name: 'Enigma Pour Homme Parfum Cologne', cat: 'Niche & Artisan', price: 17500, img: A.amber, notes: 'Bergamot · Cognac · Tobacco · Vanilla' },
-  { house: 'Roja Parfums', name: 'Midsummer Dream', cat: 'Niche & Artisan', price: 18500, img: A.frost, notes: 'Rose · Orange Blossom · Cardamom · Ambergris' },
+  { house: 'Roja Parfums', name: 'Enigma Pour Homme Parfum Cologne', cat: 'Niche', price: 17500, img: A.amber, notes: 'Bergamot · Cognac · Tobacco · Vanilla' },
+  { house: 'Roja Parfums', name: 'Midsummer Dream', cat: 'Niche', price: 18500, img: A.frost, notes: 'Rose · Orange Blossom · Cardamom · Ambergris' },
   
-  { house: 'Scentologia', name: 'Soli.flore.', cat: 'Niche & Artisan', price: 10500, img: A.pink, notes: 'Bergamot · Freesia · White Amber' },
-  { house: 'Scentologia', name: 'Syn.ergy', cat: 'Niche & Artisan', price: 10500, img: A.amber, notes: 'Mango · Peach · Saffron · Cedarwood' },
+  { house: 'Scentologia', name: 'Soli.flore.', cat: 'Niche', price: 10500, img: A.pink, notes: 'Bergamot · Freesia · White Amber' },
+  { house: 'Scentologia', name: 'Syn.ergy', cat: 'Niche', price: 10500, img: A.amber, notes: 'Mango · Peach · Saffron · Cedarwood' },
   
-  { house: 'Sora Dora', name: 'Mallow', cat: 'Niche & Artisan', price: 14200, img: A.pink, notes: 'Vanilla · Marshmallow · Orange Blossom · Raspberry' },
-  { house: 'Sora Dora', name: 'Jany', cat: 'Niche & Artisan', price: 14200, img: A.amber, notes: 'Baked Apple · Cinnamon · Puff Pastry · Vanilla' },
-  { house: 'Sora Dora', name: 'Ylop', cat: 'Niche & Artisan', price: 14200, img: A.amber, notes: 'Apricot · Black Tea · Osmanthus · Sesame' },
+  { house: 'Sora Dora', name: 'Mallow', cat: 'Niche', price: 14200, img: A.pink, notes: 'Vanilla · Marshmallow · Orange Blossom · Raspberry' },
+  { house: 'Sora Dora', name: 'Jany', cat: 'Niche', price: 14200, img: A.amber, notes: 'Baked Apple · Cinnamon · Puff Pastry · Vanilla' },
+  { house: 'Sora Dora', name: 'Ylop', cat: 'Niche', price: 14200, img: A.amber, notes: 'Apricot · Black Tea · Osmanthus · Sesame' },
   
-  { house: 'Sospiro', name: 'Afgano Puro', cat: 'Niche & Artisan', price: 14800, img: A.amber, notes: 'Herbal Notes · Cedar · Patchouli · Tobacco · Vanilla' },
+  { house: 'Sospiro', name: 'Afgano Puro', cat: 'Niche', price: 14800, img: A.amber, notes: 'Herbal Notes · Cedar · Patchouli · Tobacco · Vanilla' },
   
-  { house: 'Stéphane Humbert Lucas', name: 'Mango Kiss', cat: 'Niche & Artisan', price: 16500, img: A.amber, notes: 'Mango · Neroli · Coconut · White Musk' },
-  { house: 'Stéphane Humbert Lucas', name: 'Pink Boa', cat: 'Niche & Artisan', price: 16500, img: A.pink, notes: 'Blackcurrant · Vodka Accord · Pink Pepper' },
-  { house: 'Stéphane Humbert Lucas', name: 'Sand Dance', cat: 'Niche & Artisan', price: 16800, img: A.amber, notes: 'Whisky · Warm Cocoa · Tonka Bean · Sandalwood' },
-  { house: 'Stéphane Humbert Lucas', name: 'Taklaman', cat: 'Niche & Artisan', price: 16500, img: A.amber, notes: 'Bergamot · Rose · Guaiac Wood · Vanilla' },
+  { house: 'Stéphane Humbert Lucas', name: 'Mango Kiss', cat: 'Niche', price: 16500, img: A.amber, notes: 'Mango · Neroli · Coconut · White Musk' },
+  { house: 'Stéphane Humbert Lucas', name: 'Pink Boa', cat: 'Niche', price: 16500, img: A.pink, notes: 'Blackcurrant · Vodka Accord · Pink Pepper' },
+  { house: 'Stéphane Humbert Lucas', name: 'Sand Dance', cat: 'Niche', price: 16800, img: A.amber, notes: 'Whisky · Warm Cocoa · Tonka Bean · Sandalwood' },
+  { house: 'Stéphane Humbert Lucas', name: 'Taklaman', cat: 'Niche', price: 16500, img: A.amber, notes: 'Bergamot · Rose · Guaiac Wood · Vanilla' },
   
-  { house: 'Thomas Kosmala', name: 'No.4 EDP', cat: 'Niche & Artisan', price: 8900, img: A.frost, tag: 'Beast Mode', notes: 'Lemon Zest · Bitter Orange · Amber · Woods' },
-  { house: 'Thomas Kosmala', name: 'No.4 Neon EDP', cat: 'Niche & Artisan', price: 9500, img: A.frost, notes: 'Yuzu · Pomelo · Electric Musks' },
+  { house: 'Thomas Kosmala', name: 'No.4 EDP', cat: 'Niche', price: 8900, img: A.frost, tag: 'Beast Mode', notes: 'Lemon Zest · Bitter Orange · Amber · Woods' },
+  { house: 'Thomas Kosmala', name: 'No.4 Neon EDP', cat: 'Niche', price: 9500, img: A.frost, notes: 'Yuzu · Pomelo · Electric Musks' },
   
-  { house: 'Tiziana Terenzi', name: 'Kirke Overdose', cat: 'Niche & Artisan', price: 15500, img: A.amber, notes: 'Passion Fruit · Peach · Raspberry · Musk' },
-  { house: 'Tiziana Terenzi', name: 'Telea', cat: 'Niche & Artisan', price: 18500, img: A.frost, notes: 'Calabrian Bergamot · Bulgarian Rose · Ambergris' },
+  { house: 'Tiziana Terenzi', name: 'Kirke Overdose', cat: 'Niche', price: 15500, img: A.amber, notes: 'Passion Fruit · Peach · Raspberry · Musk' },
+  { house: 'Tiziana Terenzi', name: 'Telea', cat: 'Niche', price: 18500, img: A.frost, notes: 'Calabrian Bergamot · Bulgarian Rose · Ambergris' },
   
-  { house: 'Tom Ford', name: 'Myrrhe Mystère', cat: 'Niche & Artisan', price: 16800, img: A.amber, notes: 'Myrrh Essence · Ultra-Vanille Accord' },
+  { house: 'Tom Ford', name: 'Myrrhe Mystère', cat: 'Niche', price: 16800, img: A.amber, notes: 'Myrrh Essence · Ultra-Vanille Accord' },
   
-  { house: 'Thameen London', name: 'Carved Oud', cat: 'Niche & Artisan', price: 15800, img: A.green, notes: 'Guatemalan Cardamom · Cedarwood · South Indian Oud' },
-  { house: 'Thameen London', name: 'Peregrina', cat: 'Niche & Artisan', price: 15800, img: A.amber, notes: 'Damask Rose · Ylang-Ylang · Vanilla · Amber' },
+  { house: 'Thameen London', name: 'Carved Oud', cat: 'Niche', price: 15800, img: A.green, notes: 'Guatemalan Cardamom · Cedarwood · South Indian Oud' },
+  { house: 'Thameen London', name: 'Peregrina', cat: 'Niche', price: 15800, img: A.amber, notes: 'Damask Rose · Ylang-Ylang · Vanilla · Amber' },
   
-  { house: 'Vilhelm Parfumerie', name: 'Mango Skin', cat: 'Niche & Artisan', price: 14500, img: A.amber, notes: 'Mango · Blackcurrant · Wild Frangipani' },
+  { house: 'Vilhelm Parfumerie', name: 'Mango Skin', cat: 'Niche', price: 14500, img: A.amber, notes: 'Mango · Blackcurrant · Wild Frangipani' },
   
-  { house: 'Van Cleef & Arpels', name: 'Bois D\'Iris', cat: 'Niche & Artisan', price: 9200, img: A.frost, notes: 'Iris · Driftwood · Ambergris · Vanilla' },
-  { house: 'Van Cleef & Arpels', name: 'Bois D\'Amande', cat: 'Niche & Artisan', price: 9200, img: A.frost, notes: 'Almond · Lemon · Cedarwood · Musk' },
-  { house: 'Van Cleef & Arpels', name: 'Bois Doré', cat: 'Niche & Artisan', price: 9500, img: A.amber, notes: 'Black Pepper · Mineral Notes · Tonka Bean' },
-  { house: 'Van Cleef & Arpels', name: 'Moonlight Patchouli', cat: 'Niche & Artisan', price: 9500, img: A.amber, notes: 'Patchouli · Cocoa · Bulgarian Rose · Leather' },
-  { house: 'Van Cleef & Arpels', name: 'Neroli Amara EDP', cat: 'Niche & Artisan', price: 9200, img: A.frost, notes: 'Italian Lemon · Mandarin · Neroli · Cypress' },
-  { house: 'Van Cleef & Arpels', name: 'Neroli Amara Le Parfum', cat: 'Niche & Artisan', price: 10500, img: A.frost, notes: 'Concentrated Neroli · Solar Accord · Amber' },
-  { house: 'Van Cleef & Arpels', name: 'Rose Rouge', cat: 'Niche & Artisan', price: 9200, img: A.pink, notes: 'Pink Pepper · Blackcurrant · Rose · Cocoa' },
-  { house: 'Van Cleef & Arpels', name: 'Santal Blanc', cat: 'Niche & Artisan', price: 9500, img: A.frost, notes: 'Mandarin · Fig Milk · Sandalwood · Musk' },
-  { house: 'Van Cleef & Arpels', name: 'Santal Blanc EDP (Travel Set)', cat: 'Niche & Artisan', price: 7800, img: A.frost, notes: 'Santal Blanc Atomizer + 3x Refills' },
+  { house: 'Van Cleef & Arpels', name: 'Bois D\'Iris', cat: 'Niche', price: 9200, img: A.frost, notes: 'Iris · Driftwood · Ambergris · Vanilla' },
+  { house: 'Van Cleef & Arpels', name: 'Bois D\'Amande', cat: 'Niche', price: 9200, img: A.frost, notes: 'Almond · Lemon · Cedarwood · Musk' },
+  { house: 'Van Cleef & Arpels', name: 'Bois Doré', cat: 'Niche', price: 9500, img: A.amber, notes: 'Black Pepper · Mineral Notes · Tonka Bean' },
+  { house: 'Van Cleef & Arpels', name: 'Moonlight Patchouli', cat: 'Niche', price: 9500, img: A.amber, notes: 'Patchouli · Cocoa · Bulgarian Rose · Leather' },
+  { house: 'Van Cleef & Arpels', name: 'Neroli Amara EDP', cat: 'Niche', price: 9200, img: A.frost, notes: 'Italian Lemon · Mandarin · Neroli · Cypress' },
+  { house: 'Van Cleef & Arpels', name: 'Neroli Amara Le Parfum', cat: 'Niche', price: 10500, img: A.frost, notes: 'Concentrated Neroli · Solar Accord · Amber' },
+  { house: 'Van Cleef & Arpels', name: 'Rose Rouge', cat: 'Niche', price: 9200, img: A.pink, notes: 'Pink Pepper · Blackcurrant · Rose · Cocoa' },
+  { house: 'Van Cleef & Arpels', name: 'Santal Blanc', cat: 'Niche', price: 9500, img: A.frost, notes: 'Mandarin · Fig Milk · Sandalwood · Musk' },
+  { house: 'Van Cleef & Arpels', name: 'Santal Blanc EDP (Travel Set)', cat: 'Niche', price: 7800, img: A.frost, notes: 'Santal Blanc Atomizer + 3x Refills' },
   
-  { house: 'Xerjoff', name: 'Allende', cat: 'Niche & Artisan', price: 17500, img: A.amber, notes: 'Madagascar Vanilla · Magnolia · White Musk' },
-  { house: 'Xerjoff', name: 'Dama Bianca', cat: 'Niche & Artisan', price: 16500, img: A.pink, notes: 'Lime · Kumquat · Florentine Iris · Vanilla' },
-  { house: 'Xerjoff', name: 'Erba Gold', cat: 'Niche & Artisan', price: 17200, img: A.amber, notes: 'Amalfi Lemon · Calabrian Bergamot · Green Apple' },
-  { house: 'Xerjoff', name: 'Louis XV 1722 De Venoge', cat: 'Niche & Artisan', price: 28000, img: A.amber, notes: 'Vintage Oak · Amber · Fine Spirits Accord' },
-  { house: 'Xerjoff', name: 'Italica', cat: 'Niche & Artisan', price: 17800, img: A.amber, notes: 'Saffron · Almond · Milk · Bourbon Vanilla · Toffee' },
-  { house: 'Xerjoff', name: 'Levar Del Sole', cat: 'Niche & Artisan', price: 17500, img: A.amber, notes: 'Citrus · Rose · Cardamom · Sandalwood' },
-  { house: 'Xerjoff', name: 'Mefisto Gentiluomo', cat: 'Niche & Artisan', price: 16500, img: A.frost, notes: 'Bergamot · Grapefruit · Lavender · Violet' },
-  { house: 'Xerjoff', name: 'Naxos', cat: 'Niche & Artisan', price: 16800, img: A.amber, tag: 'Bestseller', notes: 'Bergamot · Lavender · Honey · Tobacco · Vanilla' },
-  { house: 'Xerjoff', name: 'Starlight Parfum', cat: 'Niche & Artisan', price: 18500, img: A.amber, notes: 'Cardamom · Bergamot · Cinnamon · Amber' },
-  { house: 'Xerjoff', name: 'Quattro Pizzi', cat: 'Niche & Artisan', price: 17500, img: A.pink, notes: 'Rum · Davana · Tuberose · Coconut' },
-  { house: 'Xerjoff', name: 'Torino 21', cat: 'Niche & Artisan', price: 16800, img: A.green, tag: 'Fresh King', notes: 'Mint · Lemon · Thyme · Basil · Jasmine' },
-  { house: 'Xerjoff', name: 'Torino 22', cat: 'Niche & Artisan', price: 16800, img: A.amber, notes: 'Saffron · Bergamot · Eucalyptus · Clary Sage' },
-  { house: 'Xerjoff', name: 'Torino 23', cat: 'Niche & Artisan', price: 16800, img: A.amber, notes: 'Bergamot · Rose · Nutmeg · Cardamom' },
-  { house: 'Xerjoff', name: '40 Knots', cat: 'Niche & Artisan', price: 17500, img: A.frost, notes: 'Salt · Green Notes · Woody Notes · Sea Water · Honey' }
+  { house: 'Xerjoff', name: 'Allende', cat: 'Niche', price: 17500, img: A.amber, notes: 'Madagascar Vanilla · Magnolia · White Musk' },
+  { house: 'Xerjoff', name: 'Dama Bianca', cat: 'Niche', price: 16500, img: A.pink, notes: 'Lime · Kumquat · Florentine Iris · Vanilla' },
+  { house: 'Xerjoff', name: 'Erba Gold', cat: 'Niche', price: 17200, img: A.amber, notes: 'Amalfi Lemon · Calabrian Bergamot · Green Apple' },
+  { house: 'Xerjoff', name: 'Louis XV 1722 De Venoge', cat: 'Niche', price: 28000, img: A.amber, notes: 'Vintage Oak · Amber · Fine Spirits Accord' },
+  { house: 'Xerjoff', name: 'Italica', cat: 'Niche', price: 17800, img: A.amber, notes: 'Saffron · Almond · Milk · Bourbon Vanilla · Toffee' },
+  { house: 'Xerjoff', name: 'Levar Del Sole', cat: 'Niche', price: 17500, img: A.amber, notes: 'Citrus · Rose · Cardamom · Sandalwood' },
+  { house: 'Xerjoff', name: 'Mefisto Gentiluomo', cat: 'Niche', price: 16500, img: A.frost, notes: 'Bergamot · Grapefruit · Lavender · Violet' },
+  { house: 'Xerjoff', name: 'Naxos', cat: 'Niche', price: 16800, img: A.amber, tag: 'Bestseller', notes: 'Bergamot · Lavender · Honey · Tobacco · Vanilla' },
+  { house: 'Xerjoff', name: 'Starlight Parfum', cat: 'Niche', price: 18500, img: A.amber, notes: 'Cardamom · Bergamot · Cinnamon · Amber' },
+  { house: 'Xerjoff', name: 'Quattro Pizzi', cat: 'Niche', price: 17500, img: A.pink, notes: 'Rum · Davana · Tuberose · Coconut' },
+  { house: 'Xerjoff', name: 'Torino 21', cat: 'Niche', price: 16800, img: A.green, tag: 'Fresh King', notes: 'Mint · Lemon · Thyme · Basil · Jasmine' },
+  { house: 'Xerjoff', name: 'Torino 22', cat: 'Niche', price: 16800, img: A.amber, notes: 'Saffron · Bergamot · Eucalyptus · Clary Sage' },
+  { house: 'Xerjoff', name: 'Torino 23', cat: 'Niche', price: 16800, img: A.amber, notes: 'Bergamot · Rose · Nutmeg · Cardamom' },
+  { house: 'Xerjoff', name: '40 Knots', cat: 'Niche', price: 17500, img: A.frost, notes: 'Salt · Green Notes · Woody Notes · Sea Water · Honey' }
 ];
 
 export const P = rawCatalog.map((item, index) => {
@@ -449,6 +449,6 @@ export const P = rawCatalog.map((item, index) => {
     top: topNote,
     heart: heartNote,
     base: baseNote,
-    desc: `${item.name} by ${item.house}. An authentic formulation featured in Danscents' Maison collection in Baguio. Notes of ${item.notes.replace(/·/g, ',')}.`
+    desc: `${item.name} by ${item.house}. 100% authentic fragrance offered by Danscents in Baguio at under-mall pricing in the PH. Notes of ${item.notes.replace(/·/g, ',')}.`
   };
 });
